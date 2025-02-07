@@ -15,21 +15,13 @@ using System.Windows.Shapes;
 namespace finance_manager
 {
     /// <summary>
-    /// Interaktionslogik für Window1.xaml
+    /// Interaktionslogik für transactions.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class transactions : Window
     {
-        public Window1()
+        public transactions()
         {
             InitializeComponent();
         }
-
-    private void transactionsbtn_Click(object sender, RoutedEventArgs e)
-    {
-      transactions transactionsApp = new transactions();
-      transactionsApp.Show();
-
-      this.Close();
-    }
     }
 }

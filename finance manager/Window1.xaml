@@ -16,7 +16,7 @@
         </LinearGradientBrush>
       </StackPanel.Background>
       <Button x:Name="homebtn" Content="Home" Height="35" Background="#FF3A3A3A" Foreground="White" FontWeight="Bold" Cursor="Hand"/>
-      <Button x:Name="transactionsbtn" Content="Transactions" Height="37" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Cursor="Hand"/>
+      <Button x:Name="transactionsbtn" Content="Transactions" Height="37" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Cursor="Hand" Click="transactionsbtn_Click"/>
       <Button x:Name="budgetbtn" Content="budget" Height="34" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Cursor="Hand"/>
     </StackPanel>
 
