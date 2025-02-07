@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-  <Grid Background="Black">
+  <Grid Background="#FF191A1F">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="159*"/>
       <ColumnDefinition Width="241*"/>
     </Grid.ColumnDefinitions>
-    <Button x:Name="loginbtn" Grid.Column="1" Content="Login" HorizontalAlignment="Left" Margin="39,251,0,0" VerticalAlignment="Top" Height="27" Width="92" Click="loginbtn_Click" Cursor="Hand" Background="Black" BorderBrush="#FFFBFBFB" Foreground="White"/>
+    <Button x:Name="loginbtn" Grid.Column="1" Content="Login" HorizontalAlignment="Left" Margin="39,251,0,0" VerticalAlignment="Top" Height="27" Width="92" Click="loginbtn_Click" Cursor="Hand" Background="#FF22262D" BorderBrush="#FFFBFBFB" Foreground="White"/>
     <TextBox x:Name="usernametxt" Grid.Column="1" HorizontalAlignment="Left" Margin="25,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-    <Label Grid.Column="1" Content="username" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top" Width="67" Background="Black" Foreground="White"/>
+    <Label Grid.Column="1" Content="username" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top" Width="67" Foreground="White"/>
     <Label Grid.Column="1" Content="password" HorizontalAlignment="Left" Margin="22,186,0,0" VerticalAlignment="Top" Foreground="White"/>
     <PasswordBox x:Name="passwordtxt" HorizontalAlignment="Left" Margin="25,212,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
 

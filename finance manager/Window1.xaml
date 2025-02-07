@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
-    <Grid>
-    <Label Content="home" HorizontalAlignment="Left" Margin="386,172,0,0" VerticalAlignment="Top"/>
+    <Grid Background="Black">
+    <Label Content="home" HorizontalAlignment="Left" Margin="386,172,0,0" VerticalAlignment="Top" Foreground="White"/>
 
   </Grid>
 </Window>
