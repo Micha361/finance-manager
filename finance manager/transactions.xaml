@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
         Title="transactions" Height="450" Width="800">
-    <Grid Background="Black">
+    <Grid Background="#FF191A1F">
     <Label Content="transactions" HorizontalAlignment="Left" Margin="370,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
 
   </Grid>
 </Window>
