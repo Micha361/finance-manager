@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+  <Grid>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="159*"/>
       <ColumnDefinition Width="241*"/>
     </Grid.ColumnDefinitions>
+    <Button x:Name="loginbtn" Grid.Column="1" Content="Login" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Center" Height="37" Width="115" Click="loginbtn_Click"/>
 
   </Grid>
 </Window>
