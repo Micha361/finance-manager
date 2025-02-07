@@ -31,5 +31,13 @@ namespace finance_manager
 
       this.Close();
     }
+
+    private void budgetbtn_Click(object sender, RoutedEventArgs e)
+    {
+    budget budgetApp = new budget();
+      budgetApp.Show();
+
+      this.Close();
+    }
     }
 }
