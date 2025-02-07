@@ -23,8 +23,21 @@ namespace finance_manager
 
     private void loginbtn_Click(object sender, RoutedEventArgs e)
     {
-      MessageBox.Show("Benutzername oder Passwort ist falsch.");
+      string username = usernametxt.Text;
+      string password = passwordtxt.Password; 
 
+      if (username == "admin" && password == "123")
+      {
+
+        Window1 mainApp = new Window1();
+        mainApp.Show();
+
+        this.Close();
+      }
+      else
+      {
+        MessageBox.Show("Benutzername oder Passwort ist falsch.");
+      }
     }
   }
 }
