@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
         Title="transactions" Height="450" Width="800">
-    <Grid Background="#FF191A1F">
-    <Label Content="transactions" HorizontalAlignment="Left" Margin="370,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+  <Grid Background="#FF191A1F">
     <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+    <StackPanel Margin="64,142,81,0" Background="#FF6D6D6D">
+      <StackPanel Height="49" Background="#FF868686"/>
+    </StackPanel>
+    <Label Content="Youre last transactions" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+    <Button Content="Add new transaction" HorizontalAlignment="Left" Margin="583,109,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.177,-0.599" Height="28" Width="136" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White"/>
 
   </Grid>
 </Window>
