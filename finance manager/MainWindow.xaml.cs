@@ -28,7 +28,6 @@ namespace finance_manager
 
       if (username == "admin" && password == "123")
       {
-
         Window1 mainApp = new Window1();
         mainApp.Show();
 
@@ -37,6 +36,8 @@ namespace finance_manager
       else
       {
         MessageBox.Show("Benutzername oder Passwort ist falsch.");
+        usernametxt.Text = "";
+        passwordtxt.Password = "";
       }
     }
   }
