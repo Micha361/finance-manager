@@ -8,6 +8,7 @@
         Title="addtransaction" Height="450" Width="800">
   <Grid Background="#FF191A1F">
     <Label Content="Add new transaction" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
 
   </Grid>
 </Window>

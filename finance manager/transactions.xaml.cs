@@ -31,5 +31,13 @@ namespace finance_manager
 
       this.Close();
     }
+
+    private void addnewtransactionbtn_Click(object sender, RoutedEventArgs e)
+    {
+      addtransaction addnewtransactionApp = new addtransaction();
+      addnewtransactionApp.Show();
+
+      this.Close();
     }
+  }
 }

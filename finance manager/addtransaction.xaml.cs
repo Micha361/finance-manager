@@ -23,5 +23,13 @@ namespace finance_manager
         {
             InitializeComponent();
         }
+
+    private void backbtn_Click(object sender, RoutedEventArgs e)
+    {
+      transactions transactionsApp = new transactions();
+      transactionsApp.Show();
+
+      this.Close();
+    }
     }
 }
