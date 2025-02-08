@@ -39,12 +39,13 @@ namespace finance_manager
 
       this.Close();
     }
-    private void logoutbtn_Click(object sender, RoutedEventArgs e)
+
+    private void logoutbtn_Click_1(object sender, RoutedEventArgs e)
     {
       MainWindow LoginApp = new MainWindow();
       LoginApp.Show();
 
       this.Close();
     }
-    }
+  }
 }

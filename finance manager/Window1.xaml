@@ -17,7 +17,7 @@
       <Button x:Name="homebtn" Content="Home" Height="35" Background="#FF3A3A3A" Foreground="White" FontWeight="Bold" Cursor="Hand"/>
       <Button x:Name="transactionsbtn" Content="Transactions" Height="37" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Cursor="Hand" Click="transactionsbtn_Click"/>
       <Button x:Name="budgetbtn" Content="Budget" Height="34" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Cursor="Hand" Click="budgetbtn_Click"/>
-      <Button x:Name="logoutbtn" Content="Logout" Height="34" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Cursor="Hand" Click="budgetbtn_Click"/>
+      <Button x:Name="logoutbtn" Content="Logout" Height="35" Background="#FF3A3A3A" Foreground="White" FontWeight="Bold" Click="logoutbtn_Click_1"/>
     </StackPanel>
     <Grid Margin="210,208,48,41" Background="#FF232631">
       <StackPanel/>
