@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
   <Grid Background="#FF191A1F" HorizontalAlignment="Right" Width="800">
-    <Label Content="home" HorizontalAlignment="Left" Margin="386,172,0,0" VerticalAlignment="Top" Foreground="White"/>
     <StackPanel Margin="0,0,625,0">
       <StackPanel.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -19,6 +18,11 @@
       <Button x:Name="transactionsbtn" Content="Transactions" Height="37" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Cursor="Hand" Click="transactionsbtn_Click"/>
       <Button x:Name="budgetbtn" Content="budget" Height="34" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Cursor="Hand" Click="budgetbtn_Click"/>
     </StackPanel>
+    <Grid Margin="210,208,48,41" Background="#FF232631">
+      <StackPanel/>
+      <Label Content="Youre saldo stands at: 0" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="187" Foreground="White"/>
+    </Grid>
+    <Label x:Name="welcomelbl" Content="Hello (Name)" HorizontalAlignment="Left" Margin="390,10,0,0" VerticalAlignment="Top" Width="182" Foreground="White" FontWeight="Bold" FontSize="18"/>
 
   </Grid>
 </Window>
