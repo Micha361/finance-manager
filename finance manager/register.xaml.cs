@@ -23,10 +23,23 @@ namespace finance_manager
         {
             InitializeComponent();
         }
-sd
+
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
 
         }
+
+    private void registerbtn_Click(object sender, RoutedEventArgs e)
+    {
+
+        }
+
+    private void loginlinkbtn_Click(object sender, RoutedEventArgs e)
+    {
+      MainWindow LoginApp = new MainWindow();
+      LoginApp.Show();
+
+      this.Close();
+    }
     }
 }

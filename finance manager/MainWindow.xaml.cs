@@ -40,5 +40,13 @@ namespace finance_manager
         passwordtxt.Password = "";
       }
     }
-  }
+
+    private void registerlinkbtn_Click(object sender, RoutedEventArgs e)
+    {
+      register registerApp = new register();
+      registerApp.Show();
+
+      this.Close();
+    }
+    }
 }
