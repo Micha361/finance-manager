@@ -16,6 +16,7 @@
     <Label Grid.Column="1" Content="username" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top" Width="67" Foreground="White"/>
     <Label Grid.Column="1" Content="password" HorizontalAlignment="Left" Margin="22,186,0,0" VerticalAlignment="Top" Foreground="White"/>
     <PasswordBox x:Name="passwordtxt" HorizontalAlignment="Left" Margin="25,212,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+    <Button x:Name="registerlinkbtn" Grid.Column="1" Content="register here" HorizontalAlignment="Left" Margin="23,354,0,0" VerticalAlignment="Top" Width="118" Height="29" Background="#FF22262D" Foreground="White" Click="registerlinkbtn_Click"/>
 
   </Grid>
 </Window>
