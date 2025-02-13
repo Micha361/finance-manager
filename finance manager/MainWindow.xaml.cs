@@ -27,7 +27,6 @@ namespace finance_manager
 
       if (isValidUser)
       {
-        MessageBox.Show("Login erfolgreich!");
         Window1 mainApp = new Window1();
         mainApp.Show();
         this.Close();
