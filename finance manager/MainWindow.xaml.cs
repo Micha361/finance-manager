@@ -14,7 +14,7 @@ namespace finance_manager
 
     private void loginbtn_Click(object sender, RoutedEventArgs e)
     {
-      string username = usernametxt.Text;
+      string username = usernametxt.Text.ToLower();
       string password = passwordtxt.Password;
 
       if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
