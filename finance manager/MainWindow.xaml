@@ -5,18 +5,101 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Login" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+
   <Grid Background="#FF191A1F">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="159*"/>
-      <ColumnDefinition Width="241*"/>
-    </Grid.ColumnDefinitions>
-    <Button x:Name="loginbtn" Grid.Column="1" Content="Login" HorizontalAlignment="Left" Margin="39,251,0,0" VerticalAlignment="Top" Height="27" Width="92" Click="loginbtn_Click" Cursor="Hand" Background="#FF22262D" BorderBrush="#FFFBFBFB" Foreground="White"/>
-    <TextBox x:Name="usernametxt" Grid.Column="1" HorizontalAlignment="Left" Margin="25,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-    <Label Grid.Column="1" Content="username" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top" Width="67" Foreground="White"/>
-    <Label Grid.Column="1" Content="password" HorizontalAlignment="Left" Margin="22,186,0,0" VerticalAlignment="Top" Foreground="White"/>
-    <PasswordBox x:Name="passwordtxt" HorizontalAlignment="Left" Margin="25,212,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-    <Button x:Name="registerlinkbtn" Grid.Column="1" Content="register here" HorizontalAlignment="Left" Margin="23,354,0,0" VerticalAlignment="Top" Width="118" Height="29" Background="#FF22262D" Foreground="White" Click="registerlinkbtn_Click"/>
+
+    <Grid.Resources>
+      <Style TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Background" Value="#FF33373D"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Effect">
+          <Setter.Value>
+            <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2"/>
+          </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Button">
+              <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                  <Setter Property="Background" Value="#FF4A4F56"/>
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style TargetType="TextBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="#FF2F2F2F"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="10,5,10,5"/>
+        <Setter Property="Width" Value="220"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Effect">
+          <Setter.Value>
+            <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="1"/>
+          </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="TextBox">
+              <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                <ScrollViewer Margin="4" x:Name="PART_ContentHost" VerticalAlignment="Center"/>
+              </Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style TargetType="PasswordBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="#FF2F2F2F"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="10,5,10,5"/>
+        <Setter Property="Width" Value="220"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Effect">
+          <Setter.Value>
+            <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="1"/>
+          </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="PasswordBox">
+              <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                <ScrollViewer Margin="4" x:Name="PART_ContentHost" VerticalAlignment="Center"/>
+              </Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+    </Grid.Resources>
+
+    <Label Content="Username" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" FontWeight="Bold"/>
+    <TextBox x:Name="usernametxt" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top"/>
+
+    <Label Content="Password" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" FontWeight="Bold"/>
+    <PasswordBox x:Name="passwordtxt" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top"/>
+
+    <Button x:Name="loginbtn" Content="Login" HorizontalAlignment="Center" Margin="0,251,0,0" VerticalAlignment="Top" Click="loginbtn_Click"/>
+
+    <Button x:Name="registerlinkbtn" Content="Register Here" HorizontalAlignment="Center" Margin="0,310,0,0" VerticalAlignment="Top" Click="registerlinkbtn_Click"/>
 
   </Grid>
 </Window>
