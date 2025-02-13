@@ -8,8 +8,8 @@
         Title="register" Height="450" Width="800">
   <Grid Background="#FF191A1F">
     <Button x:Name="registerbtn" Content="register" HorizontalAlignment="Left" Margin="376,293,0,0" VerticalAlignment="Top" Height="38" Width="112" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="registerbtn_Click"/>
-    <TextBox x:Name="registertxt" HorizontalAlignment="Left" Margin="344,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="29" TextChanged="TextBox_TextChanged"/>
-    <PasswordBox x:Name="passwort_txt" HorizontalAlignment="Left" Margin="344,225,0,0" VerticalAlignment="Top" Width="176" Height="30"/>
+    <TextBox x:Name="registertxt" HorizontalAlignment="Left" Margin="344,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="29"/>
+    <PasswordBox x:Name="passworttxt" HorizontalAlignment="Left" Margin="344,225,0,0" VerticalAlignment="Top" Width="176" Height="30"/>
     <Label Content="username" HorizontalAlignment="Left" Margin="344,138,0,0" VerticalAlignment="Top" Width="88" Foreground="White"/>
     <Label Content="password" HorizontalAlignment="Left" Margin="344,198,0,0" VerticalAlignment="Top" Width="88" Foreground="White"/>
     <Button x:Name="loginlinkbtn" Content="login here" HorizontalAlignment="Left" Margin="373,362,0,0" VerticalAlignment="Top" Width="118" Height="29" Background="#FF22262D" Foreground="White" Click="loginlinkbtn_Click"/>

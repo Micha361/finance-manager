@@ -1,36 +1,35 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace finance_manager
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+  public partial class MainWindow : Window
+  {
+    private Userdb userdb;
+
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
+      userdb = new Userdb();
+    }
 
     private void loginbtn_Click(object sender, RoutedEventArgs e)
     {
       string username = usernametxt.Text;
-      string password = passwordtxt.Password; 
+      string password = passwordtxt.Password;
 
-      if (username == "admin" && password == "123")
+      if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
       {
+        MessageBox.Show("Bitte geben Sie Benutzername und Passwort ein.");
+        return;
+      }
+
+      bool isValidUser = userdb.CheckLogin(username, password);
+
+      if (isValidUser)
+      {
+        MessageBox.Show("Login erfolgreich!");
         Window1 mainApp = new Window1();
         mainApp.Show();
-
         this.Close();
       }
       else
@@ -45,8 +44,7 @@ namespace finance_manager
     {
       register registerApp = new register();
       registerApp.Show();
-
       this.Close();
     }
-    }
+  }
 }
