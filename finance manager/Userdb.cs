@@ -9,6 +9,8 @@ namespace finance_manager
   {
     private string dbPath;
     private string connectionString;
+    public static string LoggedInUser { get; private set; } //Eine globale Variable um den angemeldeten Benutzer zu speichern
+
 
     public Userdb()
     {
@@ -96,7 +98,13 @@ namespace finance_manager
           cmd.Parameters.AddWithValue("@username", username);
           cmd.Parameters.AddWithValue("@password", password);
           int count = Convert.ToInt32(cmd.ExecuteScalar());
-          return count > 0;
+
+          if (count > 0)
+          {
+            LoggedInUser = username; // Hier wird der Benutzername gespeichert
+            return true;
+          }
+          return false;
         }
       }
     }

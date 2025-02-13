@@ -19,10 +19,19 @@ namespace finance_manager
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1()
-        {
-            InitializeComponent();
-        }
+    public Window1()
+    {
+      InitializeComponent();
+
+      if (!string.IsNullOrEmpty(Userdb.LoggedInUser))
+      {
+        welcomelbl.Content = $"Willkommen, {Userdb.LoggedInUser}!";
+      }
+      else
+      {
+        welcomelbl.Content = "Willkommen!";
+      }
+    }
 
     private void transactionsbtn_Click(object sender, RoutedEventArgs e)
     {
