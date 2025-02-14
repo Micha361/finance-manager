@@ -63,14 +63,15 @@
       <Button x:Name="homebtn" Content="Home" Width="199"/>
       <Button x:Name="transactionsbtn" Content="Transactions" Click="transactionsbtn_Click" Width="198"/>
       <Button x:Name="budgetbtn" Content="Budget" Click="budgetbtn_Click" Width="197"/>
+      <Button x:Name="accountbtn" Content="Account" Width="198"/>
       <Button x:Name="logoutbtn" Content="Logout" Click="logoutbtn_Click_1" Width="199"/>
     </StackPanel>
 
     <Label x:Name="welcomelbl" Content="" HorizontalAlignment="Left" Margin="387,27,0,0" VerticalAlignment="Top" FontSize="18" Width="314"/>
 
-    <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="120" Margin="255,202,0,0">
+    <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="209" Margin="255,202,0,0">
       <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label Content="Your saldo stands at: 0" Height="94"/>
+        <Label Content="Your saldo stands at: 0" Height="172"/>
       </StackPanel>
     </Border>
 
