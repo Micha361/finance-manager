@@ -32,7 +32,7 @@
                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
               </Border>
               <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True"> test
+                <Trigger Property="IsMouseOver" Value="True">
                   <Setter Property="Background" Value="#FF4A4F56"/>
                 </Trigger>
               </ControlTemplate.Triggers>
