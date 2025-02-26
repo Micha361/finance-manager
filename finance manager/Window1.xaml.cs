@@ -56,5 +56,13 @@ namespace finance_manager
 
       this.Close();
     }
+
+    private void accountbtn_Click(object sender, RoutedEventArgs e)
+    {
+      account accountApp = new account();
+      accountApp.Show();
+
+      this.Close();
+    }
   }
 }
