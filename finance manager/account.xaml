@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="account" Height="450" Width="800">
   <Grid Background="#FF191A1F">
-    <Label Content="account" HorizontalAlignment="Left" Margin="362,0,0,0" VerticalAlignment="Center" Width="122" Foreground="White" Height="36" FontSize="20"/>
+    <Label Content="account" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Width="122" Foreground="White" Height="36" FontSize="20"/>
     <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="39" Width="96" Click="backbtn_Click"/>
+    <Label x:Name="usernamelbl" Content="" HorizontalAlignment="Left" Margin="275,127,0,0" VerticalAlignment="Top" FontSize="18" Width="314" Foreground="White"/>
 
   </Grid>
 </Window>

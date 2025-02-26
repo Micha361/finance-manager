@@ -22,7 +22,19 @@ namespace finance_manager
     public account()
     {
       InitializeComponent();
+
+      if (!string.IsNullOrEmpty(Userdb.LoggedInUser))
+      {
+        usernamelbl.Content = $"username: {Userdb.LoggedInUser}!";
+      }
+      else
+      {
+        usernamelbl.Content = "username: ";
+      }
     }
+
+    
+    
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
     {
