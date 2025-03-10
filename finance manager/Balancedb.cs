@@ -1,0 +1,49 @@
+﻿using System;
+using System.Data.SQLite;
+using System.IO;
+
+namespace finance_manager
+{
+  internal class Balancedb
+  {
+    private string dbPath;
+    private string connectionString;
+
+    public Balancedb()
+    {
+      // Datenbankpfad im lokalen AppData-Ordner speichern (anscheinend benutzerfreundlicher)
+      dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "finance_manager.db");
+      connectionString = $"Data Source={dbPath}; Version=3;";
+
+      // create table if not exist
+      InitializeDatabase();
+    }
+
+    /// <summary>
+    /// Erstellt die Tabelle "balance", falls sie noch nicht existiert.
+    /// Jeder Benutzer hat 
+    /// </summary>
+    private void InitializeDatabase()
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+
+        string createBalanceTable = @"
+                    CREATE TABLE IF NOT EXISTS balance (
+                        balanceid INTEGER PRIMARY KEY AUTOINCREMENT, 
+                        balance REAL NOT NULL DEFAULT 0,            
+                        fk_userid INTEGER NOT NULL UNIQUE,           
+                        FOREIGN KEY(fk_userid) REFERENCES users(id) ON DELETE CASCADE 
+                    )";
+
+        using (SQLiteCommand cmd = new SQLiteCommand(createBalanceTable, conn))
+        {
+          cmd.ExecuteNonQuery();
+        }
+      }
+    }
+
+    
+  }
+}
