@@ -44,6 +44,67 @@ namespace finance_manager
       }
     }
 
-    
+    /// <summary>
+    /// Erstellt eine Balance für einen Benutzer mit einem Startbetrag.
+    /// </summary>
+    /// <param name="userId">fk userid</param>
+    /// <param name="startBalance">Startbetrag für das Konto (Standard: 0)</param>
+    public void CreateBalanceForUser(int userId, double startBalance = 0)
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+
+        string sql = "INSERT INTO balance (balance, fk_userid) VALUES (@balance, @userId)";
+        using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+        {
+          cmd.Parameters.AddWithValue("@balance", startBalance);
+          cmd.Parameters.AddWithValue("@userId", userId);
+          cmd.ExecuteNonQuery();
+        }
+      }
+    }
+
+    /// <summary>
+    /// Gibt den Kontostand an
+    /// </summary>
+    /// <returns>Kontostand als Double</returns>
+    public double GetBalance(int userId)
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+
+        string sql = "SELECT balance FROM balance WHERE fk_userid = @userId";
+        using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+        {
+          cmd.Parameters.AddWithValue("@userId", userId);
+          object result = cmd.ExecuteScalar();
+
+          return result != null ? Convert.ToDouble(result) : 0; // Falls kein Eintrag existiert, wird 0 zurückgegeben
+        }
+      }
+    }
+
+    /// <summary>
+    /// Aktualisiert den Kontostand eines Benutzers.
+    /// </summary>
+    /// <param name="userId">ID des Benutzers</param>
+    /// <param name="newBalance">Neuer Kontostand</param>
+    public void UpdateBalance(int userId, double newBalance)
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+
+        string sql = "UPDATE balance SET balance = @newBalance WHERE fk_userid = @userId";
+        using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+        {
+          cmd.Parameters.AddWithValue("@newBalance", newBalance);
+          cmd.Parameters.AddWithValue("@userId", userId);
+          cmd.ExecuteNonQuery();
+        }
+      }
+    }
   }
 }
