@@ -10,7 +10,7 @@ namespace finance_manager
     private string dbPath;
     private string connectionString;
     public static string LoggedInUser { get; private set; } //Eine globale Variable um den angemeldeten Benutzer zu speichern
-
+    public static int LoggedInUserId { get; private set; } // Variabel um UserId zu benutzen
 
     public Userdb()
     {
@@ -92,23 +92,23 @@ namespace finance_manager
       using (SQLiteConnection conn = new SQLiteConnection(connectionString))
       {
         conn.Open();
-        string sql = "SELECT COUNT(*) FROM users WHERE username=@username AND password=@password";
+        string sql = "SELECT id FROM users WHERE username=@username AND password=@password";
         using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
         {
           cmd.Parameters.AddWithValue("@username", username);
           cmd.Parameters.AddWithValue("@password", password);
-          int count = Convert.ToInt32(cmd.ExecuteScalar());
+          object result = cmd.ExecuteScalar();
 
-          if (count > 0)
+          if (result != null)
           {
-            LoggedInUser = username; // Hier wird der Benutzername gespeichert
+            LoggedInUser = username;
+            LoggedInUserId = Convert.ToInt32(result); // Speichert die userId
             return true;
           }
           return false;
         }
       }
     }
-
     // Benutzer löschen
     public bool DeleteUser(int userId)
     {

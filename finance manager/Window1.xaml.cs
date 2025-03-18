@@ -1,4 +1,5 @@
-﻿using System;
+﻿using finance_manager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +15,18 @@ using System.Windows.Shapes;
 
 namespace finance_manager
 {
+
     /// <summary>
     /// Interaktionslogik für Window1.xaml
     /// </summary>
     public partial class Window1 : Window
     {
+    private int currentUserId;
+    private Balancedb balancedb;
     public Window1()
     {
       InitializeComponent();
+      balancedb = new Balancedb();
 
       if (!string.IsNullOrEmpty(Userdb.LoggedInUser))
       {
@@ -31,6 +36,12 @@ namespace finance_manager
       {
         welcomelbl.Content = "Willkommen!";
       }
+
+     
+        currentUserId = Userdb.LoggedInUserId; // Benutzer-ID aus der Userdb holen
+      
+
+      LoadBalance();
     }
 
     private void transactionsbtn_Click(object sender, RoutedEventArgs e)
@@ -64,5 +75,13 @@ namespace finance_manager
 
       this.Close();
     }
+    private void LoadBalance()
+    {
+
+        double saldo = balancedb.GetBalance(currentUserId);
+        saldolbl.Content = $"Your saldo stands at: {saldo:F2} CHF";
+
+    }
+
   }
 }

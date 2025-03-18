@@ -79,9 +79,9 @@ namespace finance_manager
         using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
         {
           cmd.Parameters.AddWithValue("@userId", userId);
-          object result = cmd.ExecuteScalar();
+          object Saldo = cmd.ExecuteScalar();
 
-          return result != null ? Convert.ToDouble(result) : 0; // Falls kein Eintrag existiert, wird 0 zurückgegeben
+          return Saldo != null ? Convert.ToDouble(Saldo) : 0; // Falls kein Eintrag existiert, wird 0 zurückgegeben
         }
       }
     }
