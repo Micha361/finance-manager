@@ -5,10 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
-        Title="addtransaction" Height="450" Width="800">
-  <Grid Background="#FF191A1F">
-    <Label Content="Add new transaction" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+        Title="Add Transaction" Height="450" Width="800">
+    <Grid Background="#FF191A1F" Margin="20">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Spacing="10">
+            <TextBlock Text="Add new transaction" Foreground="White" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+            
+            <TextBlock Text="Amount:" Foreground="White"/>
+            <TextBox x:Name="amountBox" Height="30"/>
 
-  </Grid>
+            <TextBlock Text="Description:" Foreground="White"/>
+            <TextBox x:Name="descriptionBox" Height="30"/>
+
+            <TextBlock Text="Date:" Foreground="White"/>
+            <DatePicker x:Name="datePicker" Height="30"/>
+
+            <TextBlock Text="Type:" Foreground="White"/>
+            <ComboBox x:Name="typeBox" Height="30">
+                <ComboBoxItem Content="Income"/>
+                <ComboBoxItem Content="Expense"/>
+            </ComboBox>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" Spacing="10">
+                <Button x:Name="addBtn" Content="Add Transaction" Width="150" Height="35" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="addBtn_Click"/>
+                <Button x:Name="backBtn" Content="Back" Width="100" Height="35" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 </Window>
