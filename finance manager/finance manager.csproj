@@ -14,4 +14,12 @@
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Remove="addtransaction.xaml.cs.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="addtransaction.xaml.cs.xaml.cs" />
+  </ItemGroup>
+
 </Project>
