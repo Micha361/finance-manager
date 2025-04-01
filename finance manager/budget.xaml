@@ -5,9 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
-        Title="budget" Height="450" Width="800">
-  <Grid Background="#FF191A1F">
-    <Label Content="budget" HorizontalAlignment="Center" Margin="0,172,0,0" VerticalAlignment="Top" Foreground="White"/>
-    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
-  </Grid>
+        Title="Budget" Height="450" Width="800">
+    
+    <Grid Background="#FF191A1F">
+        <Button x:Name="backbtn"
+                Content="← Zurück"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10"
+                Width="85"
+                Height="32"
+                Background="#FF2F2F2F"
+                Foreground="White"
+                FontWeight="Bold"
+                Click="backbtn_Click"/>
+        
+        <Label Content="Budget"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Margin="0,172,0,0"
+               Foreground="White"
+               FontSize="20"
+               FontWeight="Bold"/>
+    </Grid>
 </Window>
