@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Dashboard" Height="450" Width="800" WindowStartupLocation="CenterScreen">
 
-  <Grid Background="#FF191A1F">
+  <Grid Background="#FF191A1F" HorizontalAlignment="Stretch" Height="NaN" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="NaN">
 
     <Grid.Resources>
       <Style TargetType="Button">
