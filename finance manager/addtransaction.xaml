@@ -6,48 +6,49 @@
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
         Title="Add Transaction" Height="500" Width="800">
-    <Grid Background="#FF191A1F" Margin="20">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Spacing="12">
+  <Grid Background="#FF191A1F" Margin="20">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
 
-            <TextBlock Text="Add New Transaction" 
+      <TextBlock Text="Add New Transaction" 
                        Foreground="White" 
                        FontSize="26" 
                        FontWeight="Bold" 
                        HorizontalAlignment="Center" 
                        Margin="0,0,0,20"/>
 
-            <TextBlock Text="Amount:" Foreground="White"/>
-            <TextBox x:Name="amountBox" Height="32" Background="#FF2F2F2F" Foreground="White" BorderBrush="#555" />
+      <TextBlock Text="Amount:" Foreground="White" Margin="0,0,0,4"/>
+      <TextBox x:Name="amountBox" Height="32" Background="#FF2F2F2F" Foreground="White" BorderBrush="#555" Margin="0,0,0,12"/>
 
-            <TextBlock Text="Description:" Foreground="White"/>
-            <TextBox x:Name="descriptionBox" Height="32" Background="#FF2F2F2F" Foreground="White" BorderBrush="#555" />
+      <TextBlock Text="Description:" Foreground="White" Margin="0,0,0,4"/>
+      <TextBox x:Name="descriptionBox" Height="32" Background="#FF2F2F2F" Foreground="White" BorderBrush="#555" Margin="0,0,0,12"/>
 
-            <TextBlock Text="Date:" Foreground="White"/>
-            <DatePicker x:Name="datePicker" Height="32" />
+      <TextBlock Text="Date:" Foreground="White" Margin="0,0,0,4"/>
+      <DatePicker x:Name="datePicker" Height="32" Margin="0,0,0,12"/>
 
-            <TextBlock Text="Type:" Foreground="White"/>
-            <ComboBox x:Name="typeBox" Height="32" Background="#FF2F2F2F" Foreground="White">
-                <ComboBoxItem Content="Income"/>
-                <ComboBoxItem Content="Expense"/>
-            </ComboBox>
+      <TextBlock Text="Type:" Foreground="White" Margin="0,0,0,4"/>
+      <ComboBox x:Name="typeBox" Height="32" Background="#FF2F2F2F" Foreground="White" Margin="0,0,0,12">
+        <ComboBoxItem Content="Income"/>
+        <ComboBoxItem Content="Expense"/>
+      </ComboBox>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0" Spacing="12">
-                <Button x:Name="addBtn" 
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
+        <Button x:Name="addBtn" 
                         Content="Add Transaction" 
                         Width="160" Height="36" 
                         Background="#FF4CAF50" 
                         Foreground="White" 
                         FontWeight="Bold" 
+                        Margin="0,0,12,0"
                         Click="addBtn_Click"/>
-                
-                <Button x:Name="backBtn" 
+
+        <Button x:Name="backBtn" 
                         Content="Back" 
                         Width="100" Height="36" 
                         Background="#FF2F2F2F" 
                         Foreground="White" 
                         FontWeight="Bold" 
                         Click="backbtn_Click"/>
-            </StackPanel>
-        </StackPanel>
-    </Grid>
+      </StackPanel>
+    </StackPanel>
+  </Grid>
 </Window>

@@ -1,35 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace finance_manager
 {
-    /// <summary>
-    /// Interaktionslogik für addtransaction.xaml
-    /// </summary>
-    public partial class addtransaction : Window
+  /// <summary>
+  /// Interaktionslogik für addtransaction.xaml
+  /// </summary>
+  public partial class addtransaction : Window
+  {
+    public addtransaction()
     {
-        public addtransaction()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
+    }
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
     {
       transactions transactionsApp = new transactions();
       transactionsApp.Show();
-
       this.Close();
     }
+
+    private void addBtn_Click(object sender, RoutedEventArgs e)
+    {
+      string amountText = amountBox.Text;
+      string description = descriptionBox.Text;
+      DateTime? date = datePicker.SelectedDate;
+      string type = (typeBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+
+      if (string.IsNullOrWhiteSpace(amountText) || string.IsNullOrWhiteSpace(description) || date == null || string.IsNullOrWhiteSpace(type))
+      {
+        MessageBox.Show("Bitte alle Felder ausfüllen.");
+        return;
+      }
+
+      if (!double.TryParse(amountText, out double amount))
+      {
+        MessageBox.Show("Ungültiger Betrag.");
+        return;
+      }
+
+      TransactionDb db = new TransactionDb();
+      db.AddTransaction(1, amount, type, description, date.Value); // Dummy userId
+
+      MessageBox.Show("Transaktion erfolgreich hinzugefügt!");
+      this.Close();
     }
+  }
 }

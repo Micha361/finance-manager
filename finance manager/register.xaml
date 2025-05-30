@@ -88,17 +88,15 @@
           </Setter.Value>
         </Setter>
       </Style>
-
     </Grid.Resources>
 
     <Label Content="Username" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" FontWeight="Bold"/>
-     x:Name="registertxt" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top"/>
+    <TextBox x:Name="registertxt" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top"/>
 
     <Label Content="Password" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" FontWeight="Bold"/>
     <PasswordBox x:Name="passworttxt" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top"/>
 
     <Button x:Name="registerbtn" Content="Register" HorizontalAlignment="Center" Margin="0,251,0,0" VerticalAlignment="Top" Click="registerbtn_Click"/>
-
     <Button x:Name="loginlinkbtn" Content="Login Here" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Click="loginlinkbtn_Click" Width="220"/>
 
   </Grid>
