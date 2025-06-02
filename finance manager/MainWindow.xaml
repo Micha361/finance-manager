@@ -90,16 +90,20 @@
       </Style>
 
     </Grid.Resources>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="209*"/>
+      <RowDefinition Height="225*"/>
+    </Grid.RowDefinitions>
 
     <Label Content="Username" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" FontWeight="Bold"/>
     <TextBox x:Name="usernametxt" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top"/>
 
     <Label Content="Password" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" FontWeight="Bold"/>
-    <PasswordBox x:Name="passwordtxt" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" KeyDown="passwordtxt_KeyDown"/>
+    <PasswordBox x:Name="passwordtxt" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" KeyDown="passwordtxt_KeyDown" Grid.RowSpan="2"/>
 
-    <Button x:Name="loginbtn" Content="Login" HorizontalAlignment="Center" Margin="0,251,0,0" VerticalAlignment="Top" Click="loginbtn_Click"/>
+    <Button x:Name="loginbtn" Content="Login" HorizontalAlignment="Center" Margin="0,42,0,0" VerticalAlignment="Top" Click="loginbtn_Click" Grid.Row="1"/>
 
-    <Button x:Name="registerlinkbtn" Content="Register Here" HorizontalAlignment="Center" Margin="0,361,0,0" VerticalAlignment="Top" Click="registerlinkbtn_Click" Width="220"/>
+    <Button x:Name="registerlinkbtn" Content="Register Here" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Click="registerlinkbtn_Click" Width="220" Grid.Row="1"/>
 
   </Grid>
 </Window>
