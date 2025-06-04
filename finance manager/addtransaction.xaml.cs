@@ -44,6 +44,12 @@ namespace finance_manager
       db.AddTransaction(1, amount, type, description, date.Value); // Dummy userId
 
       MessageBox.Show("Transaktion erfolgreich hinzugefügt!");
+
+      
+      transactions transactionsApp = new transactions();
+      transactionsApp.Show();
+
+      
       this.Close();
     }
   }

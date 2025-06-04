@@ -62,5 +62,37 @@ namespace finance_manager
                 }
             }
         }
+    public List<(int Id, int UserId, double Amount, string Category, string Description, DateTime Date)> GetTransactionsSortedByDate()
+    {
+      List<(int, int, double, string, string, DateTime)> transactions = new();
+
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+
+        string query = @"
+            SELECT transaction_id, user_id, amount, category, description, date 
+            FROM transactions
+            ORDER BY date DESC;"; // Oder ASC für aufsteigend
+
+        using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+        using (SQLiteDataReader reader = cmd.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            int id = reader.GetInt32(0);
+            int userId = reader.GetInt32(1);
+            double amount = reader.GetDouble(2);
+            string category = reader.GetString(3);
+            string description = reader.GetString(4);
+            DateTime date = DateTime.Parse(reader.GetString(5));
+
+            transactions.Add((id, userId, amount, category, description, date));
+          }
+        }
+      }
+
+      return transactions;
     }
+  }
 }
