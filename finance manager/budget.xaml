@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
         Title="Budget" Height="450" Width="800">
-    
-    <Grid Background="#FF191A1F">
-        <Button x:Name="backbtn"
+
+  <Grid Background="#FF191A1F">
+    <Button x:Name="backbtn"
                 Content="← Zurück"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -19,13 +19,41 @@
                 Foreground="White"
                 FontWeight="Bold"
                 Click="backbtn_Click"/>
-        
-        <Label Content="Budget"
+
+    <Label Content="Budget"
                HorizontalAlignment="Center"
                VerticalAlignment="Top"
-               Margin="0,172,0,0"
+               Margin="0,10,0,0"
                Foreground="White"
-               FontSize="20"
-               FontWeight="Bold"/>
-    </Grid>
+               FontSize="40"
+               FontWeight="Bold" Width="152"/>
+
+    <DataGrid x:Name="budgetGrid"
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          Margin="89,126,74,10"
+          Background="#FF2F2F2F"
+          Foreground="White"
+          GridLinesVisibility="Horizontal"
+          AlternatingRowBackground="#FF2A2A2A">
+
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Beschreibung" Binding="{Binding Description}" Width="2*"/>
+        <DataGridTextColumn Header="Gesamtbetrag" Binding="{Binding Total}" Width="*"/>
+        <DataGridTextColumn Header="Monatlich" Binding="{Binding Monthly}" Width="*"/>
+      </DataGrid.Columns>
+    </DataGrid>
+
+    <Button x:Name="addbtn"
+        Content="Hinzufügen"
+        HorizontalAlignment="Right"
+        Margin="0,10,10,0"
+        VerticalAlignment="Top"
+        Height="32"
+        Width="100"
+        Background="#FF2F2F2F"
+        Foreground="White"
+        FontWeight="Bold"
+        Click="addbtn_Click"/>
+  </Grid>
 </Window>

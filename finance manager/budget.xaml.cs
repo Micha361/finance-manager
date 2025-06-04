@@ -1,35 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace finance_manager
 {
-    /// <summary>
-    /// Interaktionslogik für budget.xaml
-    /// </summary>
-    public partial class budget : Window
+  public partial class budget : Window
+  {
+    private BudgetDb db;
+    private int userId;
+
+    public budget()
     {
-        public budget()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
+      db = new BudgetDb();
+      userId = Userdb.LoggedInUserId;
+      LoadBudgets();
+    }
+
+    private void LoadBudgets()
+    {
+      var budgets = db.GetBudgetsForUser(userId);
+      budgetGrid.ItemsSource = budgets.Select(b => new
+      {
+        Description = b.Description,
+        Total = $"{b.Total:F2} CHF",
+        Monthly = $"{b.Monthly:F2} CHF"
+      }).ToList();
+    }
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
     {
-      Window1 mainApp = new Window1();
-      mainApp.Show();
-
+      Window1 main = new Window1();
+      main.Show();
       this.Close();
     }
+
+    private void addbtn_Click(object sender, RoutedEventArgs e)
+    {
+
     }
+  }
 }
