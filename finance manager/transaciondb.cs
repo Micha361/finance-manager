@@ -40,28 +40,38 @@ namespace finance_manager
             }
         }
 
-        public void AddTransaction(int userId, double amount, string category, string description, DateTime date)
+    public void AddTransaction(int userId, double amount, string category, string description, DateTime date)
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+
+        string insertTransaction = @"
+            INSERT INTO transactions (user_id, amount, category, description, date)
+            VALUES (@userId, @amount, @category, @description, @date);";
+
+        using (SQLiteCommand cmd = new SQLiteCommand(insertTransaction, conn))
         {
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            {
-                conn.Open();
-
-                string insertTransaction = @"
-                    INSERT INTO transactions (user_id, amount, category, description, date)
-                    VALUES (@userId, @amount, @category, @description, @date);";
-
-                using (SQLiteCommand cmd = new SQLiteCommand(insertTransaction, conn))
-                {
-                    cmd.Parameters.AddWithValue("@userId", userId);
-                    cmd.Parameters.AddWithValue("@amount", amount);
-                    cmd.Parameters.AddWithValue("@category", category);
-                    cmd.Parameters.AddWithValue("@description", description);
-                    cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd HH:mm:ss"));
-
-                    cmd.ExecuteNonQuery();
-                }
-            }
+          cmd.Parameters.AddWithValue("@userId", userId);
+          cmd.Parameters.AddWithValue("@amount", amount);
+          cmd.Parameters.AddWithValue("@category", category);
+          cmd.Parameters.AddWithValue("@description", description);
+          cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd HH:mm:ss"));
+          cmd.ExecuteNonQuery();
         }
+
+        
+        Balancedb balanceDb = new Balancedb();
+        double currentBalance = balanceDb.GetBalance(userId);
+
+       
+        double newBalance = category.ToLower() == "income"
+            ? currentBalance + amount
+            : currentBalance - amount;
+
+        balanceDb.UpdateBalance(userId, newBalance);
+      }
+    }
     public List<(int Id, int UserId, double Amount, string Category, string Description, DateTime Date)> GetTransactionsSortedByDate()
     {
       List<(int, int, double, string, string, DateTime)> transactions = new();
@@ -73,7 +83,7 @@ namespace finance_manager
         string query = @"
             SELECT transaction_id, user_id, amount, category, description, date 
             FROM transactions
-            ORDER BY date DESC;"; // Oder ASC für aufsteigend
+            ORDER BY date DESC;"; 
 
         using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
         using (SQLiteDataReader reader = cmd.ExecuteReader())

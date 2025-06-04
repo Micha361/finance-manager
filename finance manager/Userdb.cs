@@ -14,7 +14,7 @@ namespace finance_manager
 
     public Userdb()
     {
-      // Datenbankpfad im lokalen AppData-Ordner speichern (Benutzerfreundlich)
+      
       dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "finance_manager.db");
       connectionString = $"Data Source={dbPath}; Version=3;";
       InitializeDatabase();
@@ -102,10 +102,31 @@ namespace finance_manager
           if (result != null)
           {
             LoggedInUser = username;
-            LoggedInUserId = Convert.ToInt32(result); // Speichert die userId
+            LoggedInUserId = Convert.ToInt32(result); 
+
+            
+            Balancedb balanceDb = new Balancedb();
+            double currentBalance = balanceDb.GetBalance(LoggedInUserId);
+
+            
+            string checkSql = "SELECT COUNT(*) FROM balance WHERE fk_userid = @userId";
+            using (SQLiteCommand checkCmd = new SQLiteCommand(checkSql, conn))
+            {
+              checkCmd.Parameters.AddWithValue("@userId", LoggedInUserId);
+              object countResult = checkCmd.ExecuteScalar();
+              int count = Convert.ToInt32(countResult);
+              if (count == 0)
+              {
+                balanceDb.CreateBalanceForUser(LoggedInUserId, 0); 
+              }
+            }
+
             return true;
           }
-          return false;
+          else
+          {
+            return false; 
+          }
         }
       }
     }

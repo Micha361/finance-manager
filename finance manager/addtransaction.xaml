@@ -27,8 +27,8 @@
 
       <TextBlock Text="Type:" Foreground="White" Margin="0,0,0,4"/>
       <ComboBox x:Name="typeBox" Height="32" Background="#FF2F2F2F" Foreground="White" Margin="0,0,0,12">
-        <ComboBoxItem Content="Income"/>
-        <ComboBoxItem Content="Expense"/>
+        <ComboBoxItem Content="income"/>
+        <ComboBoxItem Content="expense"/>
       </ComboBox>
 
       <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
