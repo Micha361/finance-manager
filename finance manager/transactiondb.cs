@@ -72,7 +72,7 @@ namespace finance_manager
         balanceDb.UpdateBalance(userId, newBalance);
       }
     }
-    public List<(int Id, int UserId, double Amount, string Category, string Description, DateTime Date)> GetTransactionsSortedByDate()
+    public List<(int Id, int UserId, double Amount, string Category, string Description, DateTime Date)> GetTransactionsSortedByDate(int userId)
     {
       List<(int, int, double, string, string, DateTime)> transactions = new();
 
@@ -83,26 +83,33 @@ namespace finance_manager
         string query = @"
             SELECT transaction_id, user_id, amount, category, description, date 
             FROM transactions
-            ORDER BY date DESC;"; 
+            WHERE user_id = @userId
+            ORDER BY date DESC;";
 
         using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
-        using (SQLiteDataReader reader = cmd.ExecuteReader())
         {
-          while (reader.Read())
+          cmd.Parameters.AddWithValue("@userId", userId);
+          using (SQLiteDataReader reader = cmd.ExecuteReader())
           {
-            int id = reader.GetInt32(0);
-            int userId = reader.GetInt32(1);
-            double amount = reader.GetDouble(2);
-            string category = reader.GetString(3);
-            string description = reader.GetString(4);
-            DateTime date = DateTime.Parse(reader.GetString(5));
+            while (reader.Read())
+            {
+              int id = reader.GetInt32(0);
+              int uId = reader.GetInt32(1);
+              double amount = reader.GetDouble(2);
+              string category = reader.GetString(3);
+              string description = reader.GetString(4);
+              DateTime date = DateTime.Parse(reader.GetString(5));
 
-            transactions.Add((id, userId, amount, category, description, date));
+              transactions.Add((id, uId, amount, category, description, date));
+            }
           }
         }
       }
 
       return transactions;
     }
+
+      
+    
   }
 }

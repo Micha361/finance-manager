@@ -15,20 +15,20 @@ namespace finance_manager
 
     private void LoadTransactions()
     {
-      TransactionDb db = new TransactionDb();
-      var transactions = db.GetTransactionsSortedByDate();
+      int userId = Userdb.LoggedInUserId;
 
+      TransactionDb db = new TransactionDb();
+      var transactions = db.GetTransactionsSortedByDate(userId);
 
       transactionGrid.ItemsSource = transactions.Select(t => new
       {
         Date = t.Date.ToString("dd.MM.yyyy"),
         t.Category,
-        Amount = $"{t.Amount} CHF",
+        Amount = $"{t.Amount:F2} CHF",
         t.Description
       }).ToList();
-
-    
     }
+
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
     {
