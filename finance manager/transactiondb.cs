@@ -4,7 +4,7 @@ using System.IO;
 
 namespace finance_manager
 {
-    internal class TransactionDb
+    public class TransactionDb
     {
         private string dbPath;
         private string connectionString;
