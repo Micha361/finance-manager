@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "finance manager", "finance 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{93309726-423D-476C-9A51-E18E9CB7AEDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A9E4B3C7-30F0-4DB7-8AB3-C2F17A6EBD53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,9 +19,16 @@ Global
 		{7B4C2C49-AE6F-4C26-8255-C189C31EBB22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B4C2C49-AE6F-4C26-8255-C189C31EBB22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B4C2C49-AE6F-4C26-8255-C189C31EBB22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E4B3C7-30F0-4DB7-8AB3-C2F17A6EBD53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E4B3C7-30F0-4DB7-8AB3-C2F17A6EBD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E4B3C7-30F0-4DB7-8AB3-C2F17A6EBD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E4B3C7-30F0-4DB7-8AB3-C2F17A6EBD53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A9E4B3C7-30F0-4DB7-8AB3-C2F17A6EBD53} = {93309726-423D-476C-9A51-E18E9CB7AEDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7DB3B649-D808-4A26-A047-D4884078D677}
