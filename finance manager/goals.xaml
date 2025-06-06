@@ -11,21 +11,24 @@
       <TextBlock Text="Deine Ziele" FontSize="24" Foreground="White" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
       <DataGrid x:Name="goalGrid"
-          AutoGenerateColumns="False"
-          IsReadOnly="True"
-          CanUserAddRows="False"
-          Margin="64,147,81,0"
-          RowHeight="32"
-          FontSize="14"
-          HeadersVisibility="Column"
-          VerticalAlignment="Top"
-          GridLinesVisibility="Horizontal"
-          AlternatingRowBackground="LightGray"
-          Height="277">
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                CanUserAddRows="False"
+                Margin="64,147,81,0"
+                RowHeight="32"
+                FontSize="14"
+                HeadersVisibility="Column"
+                VerticalAlignment="Top"
+                GridLinesVisibility="Horizontal"
+                AlternatingRowBackground="LightGray"
+                Height="277"
+                SelectionChanged="goalGrid_SelectionChanged">
 
         <DataGrid.Columns>
           <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="2*" />
           <DataGridTextColumn Header="Zielbetrag" Binding="{Binding TargetAmount}" Width="*" />
+          <DataGridTextColumn Header="Gespart" Binding="{Binding SavedAmount}" Width="*" />
+          <DataGridTextColumn Header="Noch benötigt" Binding="{Binding Remaining}" Width="*" />
         </DataGrid.Columns>
       </DataGrid>
     </StackPanel>

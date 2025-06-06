@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.IO;
 
 namespace finance_manager
 {
-  internal class GoalDb
+  public class Goal
   {
-    private string dbPath;
-    private string connectionString;
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public double Target { get; set; }
+    public double Saved { get; set; }
+    public double Needed => Target - Saved;
+  }
+
+  public class GoalDb
+  {
+    private string connectionString = "Data Source=finance.db";
 
     public GoalDb()
     {
-      dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "finance_manager.db");
-      connectionString = $"Data Source={dbPath}; Version=3;";
       InitializeDatabase();
     }
 
@@ -24,31 +29,32 @@ namespace finance_manager
         conn.Open();
 
         string createTable = @"
-                    CREATE TABLE IF NOT EXISTS goals (
-                        goal_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        title TEXT NOT NULL,
-                        target_amount REAL NOT NULL,
-                        saved_amount REAL NOT NULL DEFAULT 0,
-                        fk_userid INTEGER NOT NULL,
-                        FOREIGN KEY(fk_userid) REFERENCES users(id) ON DELETE CASCADE
-                    );";
+                CREATE TABLE IF NOT EXISTS goals (
+                    goal_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    title TEXT NOT NULL,
+                    target_amount REAL NOT NULL,
+                    saved_amount REAL NOT NULL DEFAULT 0,
+                    needed_amount REAL NOT NULL,
+                    fk_userid INTEGER NOT NULL,
+                    FOREIGN KEY(fk_userid) REFERENCES users(id) ON DELETE CASCADE
+                );";
 
-        using (SQLiteCommand cmd = new SQLiteCommand(createTable, conn))
+        using (SQLiteCommand command = new SQLiteCommand(createTable, conn))
         {
-          cmd.ExecuteNonQuery();
+          command.ExecuteNonQuery();
         }
       }
     }
 
-    public void AddGoal(int userId, string title, double targetAmount)
+    public void AddGoal(string title, double targetAmount, int userId)
     {
       using (SQLiteConnection conn = new SQLiteConnection(connectionString))
       {
         conn.Open();
 
         string insertSql = @"
-                    INSERT INTO goals (title, target_amount, saved_amount, fk_userid)
-                    VALUES (@title, @target, 0, @userId);";
+                INSERT INTO goals (title, target_amount, saved_amount, needed_amount, fk_userid)
+                VALUES (@title, @target, 0, @target, @userId);";
 
         using (SQLiteCommand cmd = new SQLiteCommand(insertSql, conn))
         {
@@ -60,46 +66,30 @@ namespace finance_manager
       }
     }
 
-    public void UpdateSavedAmount(int goalId, double newSavedAmount)
+    public List<Goal> GetGoalsForUser(int userId)
     {
-      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-      {
-        conn.Open();
-
-        string sql = "UPDATE goals SET saved_amount = @saved WHERE goal_id = @id";
-
-        using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
-        {
-          cmd.Parameters.AddWithValue("@saved", newSavedAmount);
-          cmd.Parameters.AddWithValue("@id", goalId);
-          cmd.ExecuteNonQuery();
-        }
-      }
-    }
-
-    public List<(int Id, string Title, double Target, double Saved)> GetGoalsForUser(int userId)
-    {
-      List<(int, string, double, double)> goals = new();
+      List<Goal> goals = new List<Goal>();
 
       using (SQLiteConnection conn = new SQLiteConnection(connectionString))
       {
         conn.Open();
-
         string query = "SELECT goal_id, title, target_amount, saved_amount FROM goals WHERE fk_userid = @userId";
 
         using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
         {
           cmd.Parameters.AddWithValue("@userId", userId);
+
           using (SQLiteDataReader reader = cmd.ExecuteReader())
           {
             while (reader.Read())
             {
-              int id = reader.GetInt32(0);
-              string title = reader.GetString(1);
-              double target = reader.GetDouble(2);
-              double saved = reader.GetDouble(3);
-
-              goals.Add((id, title, target, saved));
+              goals.Add(new Goal
+              {
+                Id = reader.GetInt32(0),
+                Title = reader.GetString(1),
+                Target = reader.GetDouble(2),
+                Saved = reader.GetDouble(3)
+              });
             }
           }
         }
@@ -108,15 +98,81 @@ namespace finance_manager
       return goals;
     }
 
-    public void DeleteGoal(int goalId)
+    public Goal GetGoalById(int goalId)
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+        string query = "SELECT goal_id, title, target_amount, saved_amount FROM goals WHERE goal_id = @id";
+
+        using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+        {
+          cmd.Parameters.AddWithValue("@id", goalId);
+
+          using (SQLiteDataReader reader = cmd.ExecuteReader())
+          {
+            if (reader.Read())
+            {
+              return new Goal
+              {
+                Id = reader.GetInt32(0),
+                Title = reader.GetString(1),
+                Target = reader.GetDouble(2),
+                Saved = reader.GetDouble(3)
+              };
+            }
+          }
+        }
+      }
+
+      return null;
+    }
+
+    public void UpdateSavedAmount(int goalId, double newSavedAmount)
     {
       using (SQLiteConnection conn = new SQLiteConnection(connectionString))
       {
         conn.Open();
 
-        string sql = "DELETE FROM goals WHERE goal_id = @id";
+        string updateSql = @"
+                UPDATE goals 
+                SET saved_amount = @saved, 
+                    needed_amount = target_amount - @saved
+                WHERE goal_id = @id";
 
-        using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+        using (SQLiteCommand command = new SQLiteCommand(updateSql, conn))
+        {
+          command.Parameters.AddWithValue("@saved", newSavedAmount);
+          command.Parameters.AddWithValue("@id", goalId);
+          command.ExecuteNonQuery();
+        }
+      }
+    }
+
+    public void UpdateGoalTitle(int goalId, string newTitle)
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+        string updateSql = "UPDATE goals SET title = @title WHERE goal_id = @id";
+
+        using (SQLiteCommand cmd = new SQLiteCommand(updateSql, conn))
+        {
+          cmd.Parameters.AddWithValue("@title", newTitle);
+          cmd.Parameters.AddWithValue("@id", goalId);
+          cmd.ExecuteNonQuery();
+        }
+      }
+    }
+
+    public void DeleteGoal(int goalId)
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+        string deleteSql = "DELETE FROM goals WHERE goal_id = @id";
+
+        using (SQLiteCommand cmd = new SQLiteCommand(deleteSql, conn))
         {
           cmd.Parameters.AddWithValue("@id", goalId);
           cmd.ExecuteNonQuery();

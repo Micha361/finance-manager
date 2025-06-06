@@ -51,5 +51,10 @@ namespace finance_manager
       mainApp.Show();
       this.Close();
     }
+
+    private void goalGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
   }
 }
