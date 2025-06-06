@@ -7,34 +7,45 @@
         mc:Ignorable="d"
         Title="transactions" Height="450" Width="800">
   <Grid Background="#FF191A1F">
-    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
-    <Label Content="Youre last transactions" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
-    <Button x:Name="addnewtransactionbtn" Content="Add new transaction" HorizontalAlignment="Left" Margin="583,109,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.177,-0.599" Height="28" Width="136" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Click="addnewtransactionbtn_Click"/>
+    <Button x:Name="backbtn" Content="zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+
+    <Label Content="Ihre letztden Transaktionen" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+
+    <Button x:Name="addnewtransactionbtn" Content="Add new transaction" HorizontalAlignment="Left" Margin="583,109,0,0" VerticalAlignment="Top" Height="28" Width="136" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Click="addnewtransactionbtn_Click"/>
+
     <DataGrid x:Name="transactionGrid"
-          AutoGenerateColumns="False"
-          IsReadOnly="True"
-          CanUserAddRows="False"
-          Margin="64,147,81,0"
-          RowHeight="32"
-          FontSize="14"
-          HeadersVisibility="Column"
-          VerticalAlignment="Top"
-          GridLinesVisibility="Horizontal"
-          AlternatingRowBackground="Gray" Height="277">
+              AutoGenerateColumns="False"
+              IsReadOnly="True"
+              CanUserAddRows="False"
+              Margin="64,147,81,0"
+              RowHeight="32"
+              FontSize="14"
+              HeadersVisibility="Column"
+              VerticalAlignment="Top"
+              GridLinesVisibility="Horizontal"
+              AlternatingRowBackground="Gray"
+              Height="277">
 
       <DataGrid.Columns>
-        <DataGridTextColumn Header="Datum"
-                        Binding="{Binding Date}"
-                        Width="120" />
-        <DataGridTextColumn Header="Kategorie"
-                        Binding="{Binding Category}"
-                        Width="*" />
-        <DataGridTextColumn Header="Betrag"
-                        Binding="{Binding Amount}"
-                        Width="100" />
-        <DataGridTextColumn Header="Beschreibung"
-                        Binding="{Binding Description}"
-                        Width="2*" />
+        <DataGridTextColumn Header="Datum" Binding="{Binding Date}" Width="120" />
+        <DataGridTextColumn Header="Kategorie" Binding="{Binding Category}" Width="*" />
+        <DataGridTextColumn Header="Betrag" Binding="{Binding Amount}" Width="100" />
+        <DataGridTextColumn Header="Beschreibung" Binding="{Binding Description}" Width="2*" />
+
+        <DataGridTemplateColumn Header="Löschen" Width="80">
+          <DataGridTemplateColumn.CellTemplate>
+            <DataTemplate>
+              <Button Content="Löschen"
+                      Width="65"
+                      Height="24"
+                      Background="#FF3A3A3A"
+                      Foreground="White"
+                      FontSize="12"
+                      FontWeight="Bold" />
+            </DataTemplate>
+          </DataGridTemplateColumn.CellTemplate>
+        </DataGridTemplateColumn>
+
       </DataGrid.Columns>
     </DataGrid>
   </Grid>

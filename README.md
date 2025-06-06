@@ -2,6 +2,7 @@ Dokumentation
 
 Personal Finance Manager
 
+# Video
 
 # 1. Einleitung
 
@@ -181,3 +182,26 @@ Die Verwendung von Unit-Tests bringt mehrere Vorteile mit sich: Einerseits wird 
 # 9. Fazit und Ausblick
 
 Mit dem Personal Finance Manager wurde eine umfassende und moderne Anwendung geschaffen, die es Nutzerinnen und Nutzern ermöglicht, ihre persönlichen Finanzen einfach, übersichtlich und effizient zu verwalten. Die Software verbindet eine klare Benutzeroberfläche mit einer stabilen technischen Basis, wodurch ein zuverlässiges und gleichzeitig benutzerfreundliches System entstanden ist. Die Anwendung erfüllt alle grundlegenden Anforderungen an eine Finanzverwaltungssoftware und bietet darüber hinaus sinnvolle Erweiterungen wie Budgetfunktionen und grafische Auswertungen, die das Verständnis der eigenen finanziellen Situation deutlich verbessern. Durch den Einsatz objektorientierter Programmierung, sauber strukturierter Datenbankanbindung und modularem Aufbau ist die Anwendung nicht nur funktional, sondern auch langfristig wartbar und erweiterbar. Die klare Trennung von Oberfläche, Logik und Datenhaltung erleichtert zukünftige Anpassungen und neue Funktionen können gezielt integriert werden. Perspektivisch wäre es denkbar, das System durch Funktionen wie automatischen Datenexport, eine Cloud-Synchronisation zur geräteübergreifenden Nutzung oder sogar eine Anbindung an mobile Endgeräte zu erweitern. Damit bietet der Personal Finance Manager eine solide Grundlage für eine kontinuierliche Weiterentwicklung im Sinne einer noch umfassenderen digitalen Finanzverwaltung.
+
+# ER Modell
+![PFM_ER_Diagramm drawio](https://github.com/user-attachments/assets/a38c9c51-7db9-47c6-8f9b-79c9c9086cdf)
+
+
+
+
+# Relationales Modell
+![image](https://github.com/user-attachments/assets/6c2c97c4-1401-4366-a01b-c29137eaa88c)
+
+# Mockup
+Es folgen Bilder die in der Planung erstellt wurden von gewissen Seiten.
+
+![image](https://github.com/user-attachments/assets/c586fa55-162e-48e3-a0b6-cd853e8289df)
+![image](https://github.com/user-attachments/assets/ea1e0b10-344e-4c41-a480-fb4be59f3ab5)
+![image](https://github.com/user-attachments/assets/71252b0f-aa3e-4b2b-86c9-89bf8cfd5ccc)
+![image](https://github.com/user-attachments/assets/dbd5128f-9454-4cff-a9d6-d66b3f631892)
+![image](https://github.com/user-attachments/assets/58806c25-1411-47da-9db3-f9651f44f8f8)
+
+# Planung
+![image](https://github.com/user-attachments/assets/289ab264-9fe3-465f-bed0-618a449240b2)
+
+
