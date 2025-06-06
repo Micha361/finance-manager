@@ -40,7 +40,6 @@
                         FontWeight="Bold" 
                         Margin="0,0,12,0"
                         Click="addBtn_Click"/>
-
         <Button x:Name="backBtn" 
                         Content="Back" 
                         Width="100" Height="36" 

@@ -33,7 +33,7 @@ namespace finance_manager
       }
     }
 
-    
+     
     
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
