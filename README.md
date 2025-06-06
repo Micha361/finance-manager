@@ -201,7 +201,7 @@ Es folgen Bilder die in der Planung erstellt wurden von gewissen Seiten.
 ![image](https://github.com/user-attachments/assets/dbd5128f-9454-4cff-a9d6-d66b3f631892)
 ![image](https://github.com/user-attachments/assets/58806c25-1411-47da-9db3-f9651f44f8f8)
 
-#Planung
+# Planung
 ![image](https://github.com/user-attachments/assets/289ab264-9fe3-465f-bed0-618a449240b2)
 
 
