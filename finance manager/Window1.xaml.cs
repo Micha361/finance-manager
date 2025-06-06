@@ -83,5 +83,11 @@ namespace finance_manager
 
     }
 
+    private void goalsbtn_Click(object sender, RoutedEventArgs e)
+    {
+      goals goalsApp = new goals();
+      goalsApp.Show();
+      this.Close();
+    }
   }
 }

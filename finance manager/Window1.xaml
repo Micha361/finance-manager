@@ -63,6 +63,7 @@
       <Button x:Name="homebtn" Content="Home" Width="199"/>
       <Button x:Name="transactionsbtn" Content="Transactions" Click="transactionsbtn_Click" Width="198"/>
       <Button x:Name="budgetbtn" Content="Budget" Click="budgetbtn_Click" Width="197"/>
+      <Button x:Name="goalsbtn" Content="Goals" Click="goalsbtn_Click" Width="198"/>
       <Button x:Name="accountbtn" Content="Account" Width="198" Click="accountbtn_Click"/>
       <Button x:Name="logoutbtn" Content="Logout" Click="logoutbtn_Click_1" Width="199"/>
     </StackPanel>
