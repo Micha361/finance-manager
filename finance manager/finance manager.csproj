@@ -22,4 +22,8 @@
     <Compile Remove="addtransaction.xaml.cs.xaml.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Video\" />
+  </ItemGroup>
+
 </Project>
