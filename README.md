@@ -201,6 +201,7 @@ Mit dem Personal Finance Manager wurde eine umfassende und moderne Anwendung ges
 ![image](https://github.com/user-attachments/assets/6c2c97c4-1401-4366-a01b-c29137eaa88c)
 
 # UML Klassendiagram
+![image](https://github.com/user-attachments/assets/6158a569-4023-4eeb-ab1e-01959339f08e)
 
 
 # Mockup
