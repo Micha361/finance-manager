@@ -37,7 +37,7 @@
           DisplayMemberPath="Title"
           SelectedValuePath="Id"
           Foreground="Black"
-          Background="White"/>
+          Background="White" SelectionChanged="GoalComboBox_SelectionChanged"/>
 
       <TextBlock Text="Betrag:" Foreground="White"/>
       <TextBox x:Name="TargetAmountBox1" Margin="0,5,0,20"/>

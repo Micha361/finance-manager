@@ -65,13 +65,13 @@
             FontWeight="Bold"
             Click="addbtn_Click"/>
 
-    <Label Content="Budgets"
+    <Label Content="Ziele"
            HorizontalAlignment="Center"
            Margin="0,43,0,0"
            VerticalAlignment="Top"
            Foreground="White"
            Height="51"
-           Width="140"
+           Width="63"
            FontSize="24"
            FontWeight="Bold"/>
   </Grid>
