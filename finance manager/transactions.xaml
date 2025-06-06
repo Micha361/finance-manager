@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="transactions" Height="450" Width="800">
   <Grid Background="#FF191A1F">
-    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+    <Button x:Name="backbtn" Content="zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
 
-    <Label Content="Your last transactions" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+    <Label Content="Ihre letztden Transaktionen" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
 
     <Button x:Name="addnewtransactionbtn" Content="Add new transaction" HorizontalAlignment="Left" Margin="583,109,0,0" VerticalAlignment="Top" Height="28" Width="136" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Click="addnewtransactionbtn_Click"/>
 
