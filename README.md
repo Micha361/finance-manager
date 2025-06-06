@@ -193,3 +193,10 @@ Mit dem Personal Finance Manager wurde eine umfassende und moderne Anwendung ges
 ![image](https://github.com/user-attachments/assets/6c2c97c4-1401-4366-a01b-c29137eaa88c)
 
 # Mockup
+Es folgen Bilder die in der Planung erstellt wurden von gewissen Seiten.
+![image](https://github.com/user-attachments/assets/c586fa55-162e-48e3-a0b6-cd853e8289df)
+![image](https://github.com/user-attachments/assets/ea1e0b10-344e-4c41-a480-fb4be59f3ab5)
+![image](https://github.com/user-attachments/assets/71252b0f-aa3e-4b2b-86c9-89bf8cfd5ccc)
+![image](https://github.com/user-attachments/assets/dbd5128f-9454-4cff-a9d6-d66b3f631892)
+
+
