@@ -66,6 +66,7 @@
       <Button x:Name="goalsbtn" Content="Goals" Click="goalsbtn_Click" Width="198"/>
       <Button x:Name="accountbtn" Content="Account" Width="198" Click="accountbtn_Click"/>
       <Button x:Name="logoutbtn" Content="Logout" Click="logoutbtn_Click_1" Width="199"/>
+      <Label x:Name="supportlbl" Content="Support: 078 828 48 11" FontSize="14"/>
     </StackPanel>
 
     <Label x:Name="welcomelbl" Content="" HorizontalAlignment="Left" Margin="387,27,0,0" VerticalAlignment="Top" FontSize="18" Width="314"/>
