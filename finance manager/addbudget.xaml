@@ -16,11 +16,14 @@
       <TextBlock Text="Category:" Foreground="White"/>
       <TextBox x:Name="CategoryBox" Margin="0,5,0,10"/>
 
-      <TextBlock Text="Month:" Foreground="White"/>
-      <DatePicker x:Name="MonthPicker" Margin="0,5,0,20"/>
-
       <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-        <Button x:Name="AddButton" Content="Add Budget" Width="120" Margin="0,0,10,0" Background="#3CB371" Foreground="White"/>
+        <Button x:Name="AddButton"
+        Content="Add Budget"
+        Width="120"
+        Margin="0,0,10,0"
+        Background="#3CB371"
+        Foreground="White"
+        Click="AddButton_Click"/>
       </StackPanel>
     </StackPanel>
     <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>

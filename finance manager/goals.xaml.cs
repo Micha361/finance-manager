@@ -14,15 +14,15 @@ using System.Windows.Shapes;
 
 namespace finance_manager
 {
-    /// <summary>
-    /// Interaktionslogik für goals.xaml
-    /// </summary>
-    public partial class goals : Window
+  /// <summary>
+  /// Interaktionslogik für goals.xaml
+  /// </summary>
+  public partial class goals : Window
+  {
+    public goals()
     {
-        public goals()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
+    }
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
     {
@@ -30,5 +30,11 @@ namespace finance_manager
       mainApp.Show();
       this.Close();
     }
+    private void addbtn_Click(object sender, RoutedEventArgs e)
+    {
+      addgoals main = new addgoals();
+      main.Show();
+      this.Close();
     }
+  }
 }
