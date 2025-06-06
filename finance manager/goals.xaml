@@ -8,7 +8,6 @@
         Title="Goals" Height="450" Width="800">
   <Grid Background="#FF191A1F">
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="700">
-      <TextBlock Text="Deine Ziele" FontSize="24" Foreground="White" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
       <DataGrid x:Name="goalGrid"
           AutoGenerateColumns="False"
@@ -28,9 +27,10 @@
           <DataGridTextColumn Header="Zielbetrag" Binding="{Binding TargetAmount}" Width="*" />
         </DataGrid.Columns>
       </DataGrid>
+      <Label Content="Label"/>
     </StackPanel>
     <Button x:Name="backbtn"
-      Content="Zurück"
+      Content="back"
       HorizontalAlignment="Left"
       VerticalAlignment="Top"
       Margin="10,10,0,0"
@@ -41,7 +41,7 @@
       FontWeight="Bold"
       Click="backbtn_Click"/>
     <Button x:Name="addbutton"
-      Content="Hinzufügen"
+      Content="add"
       HorizontalAlignment="Left"
       VerticalAlignment="Top"
       Margin="705,10,0,0"
@@ -51,5 +51,6 @@
       Foreground="White"
       FontWeight="Bold"
       Click="addbtn_Click"/>
+    <Label Content="Budgets" HorizontalAlignment="Center" Margin="0,43,0,0" VerticalAlignment="Top" Foreground="White" Height="51" Width="140" FontSize="24" FontWeight="Bold"/>
   </Grid>
 </Window>

@@ -39,7 +39,9 @@ namespace finance_manager
 
     private void addbtn_Click(object sender, RoutedEventArgs e)
     {
-
+      addbudget mainApp = new addbudget();
+      mainApp.Show();
+      this.Close();
     }
   }
 }
