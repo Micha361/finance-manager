@@ -43,5 +43,38 @@ namespace finance_manager
       mainApp.Show();
       this.Close();
     }
+
+
+    private void DeleteBudget_Click(object sender, RoutedEventArgs e)
+    {
+      Button deleteButton = sender as Button;
+      var row = (FrameworkElement)deleteButton.DataContext;
+      dynamic selectedBudget = row.DataContext;
+
+      string desc = selectedBudget.Description;
+      var allBudgets = db.GetBudgetsForUser(userId);
+      var budgetToDelete = allBudgets.FirstOrDefault(b => b.Description == desc);
+
+      if (budgetToDelete.Equals(default((int, string, double, double))))
+      {
+        MessageBox.Show("Budget konnte nicht gefunden werden.");
+        return;
+      }
+
+      MessageBoxResult result = MessageBox.Show(
+        "Möchtest du dieses Budget wirklich löschen?",
+        "Bestätigung",
+        MessageBoxButton.YesNo,
+        MessageBoxImage.Warning
+      );
+
+      if (result == MessageBoxResult.Yes)
+      {
+        db.DeleteBudget(budgetToDelete.Id);
+        MessageBox.Show("Budget wurde gelöscht.");
+        LoadBudgets();
+      }
+    }
+
   }
 }
