@@ -21,6 +21,6 @@
 
     <Button x:Name="ChangePasswordButton" Content="Passwort ändern" HorizontalAlignment="Left" Margin="330,280,0,0" VerticalAlignment="Top" Width="140" Height="30" Background="#3CB371" Foreground="White"/>
 
-    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+    <Button x:Name="backbtn" Content="zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
   </Grid>
 </Window>

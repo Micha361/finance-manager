@@ -72,7 +72,7 @@
 
     <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="209" Margin="255,202,0,0">
       <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label x:Name="saldolbl" Content="Your saldo stands at: 0" Height="172"/>
+        <Label x:Name="saldolbl" Content="Ihr Saldo beträgt: 0" Height="172"/>
       </StackPanel>
     </Border>
 

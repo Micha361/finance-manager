@@ -30,7 +30,7 @@
       <Label Content="Label"/>
     </StackPanel>
     <Button x:Name="backbtn"
-      Content="back"
+      Content="zurück"
       HorizontalAlignment="Left"
       VerticalAlignment="Top"
       Margin="10,10,0,0"
@@ -41,7 +41,7 @@
       FontWeight="Bold"
       Click="backbtn_Click"/>
     <Button x:Name="addbutton"
-      Content="add"
+      Content="hinzufügen"
       HorizontalAlignment="Left"
       VerticalAlignment="Top"
       Margin="705,10,0,0"

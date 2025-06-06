@@ -8,12 +8,12 @@
         Title="Add Goal" Height="450" Width="800">
   <Grid Background="#FF191A1F">
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
-      <TextBlock Text="Add New Goal" FontSize="24" Foreground="White" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+      <TextBlock Text="Goal hinzufügen" FontSize="24" Foreground="White" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-      <TextBlock Text="Goal Title:" Foreground="White"/>
+      <TextBlock Text="Goal Titel:" Foreground="White"/>
       <TextBox x:Name="TitleBox" Margin="0,5,0,10"/>
 
-      <TextBlock Text="Target Amount:" Foreground="White"/>
+      <TextBlock Text="Ziel Summe:" Foreground="White"/>
       <TextBox x:Name="TargetAmountBox" Margin="0,5,0,20"/>
 
       <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -26,6 +26,6 @@
         Click="AddGoalButton_Click"/>
       </StackPanel>
     </StackPanel>
-    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+    <Button x:Name="backbtn" Content="zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
   </Grid>
 </Window>

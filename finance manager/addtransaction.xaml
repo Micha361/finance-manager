@@ -9,23 +9,23 @@
   <Grid Background="#FF191A1F" Margin="20">
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
 
-      <TextBlock Text="Add New Transaction" 
+      <TextBlock Text="Transaction hinzufügen" 
                  Foreground="White" 
                  FontSize="26" 
                  FontWeight="Bold" 
                  HorizontalAlignment="Center" 
                  Margin="0,0,0,20"/>
 
-      <TextBlock Text="Amount:" Foreground="White" Margin="0,0,0,4"/>
+      <TextBlock Text="Summe:" Foreground="White" Margin="0,0,0,4"/>
       <TextBox x:Name="amountBox" Height="32" Background="#FF2F2F2F" Foreground="White" BorderBrush="#555" Margin="0,0,0,12"/>
 
-      <TextBlock Text="Description:" Foreground="White" Margin="0,0,0,4"/>
+      <TextBlock Text="Beschreibung:" Foreground="White" Margin="0,0,0,4"/>
       <TextBox x:Name="descriptionBox" Height="32" Background="#FF2F2F2F" Foreground="White" BorderBrush="#555" Margin="0,0,0,12"/>
 
-      <TextBlock Text="Date:" Foreground="White" Margin="0,0,0,4"/>
+      <TextBlock Text="Datum:" Foreground="White" Margin="0,0,0,4"/>
       <DatePicker x:Name="datePicker" Height="32" Margin="0,0,0,12"/>
 
-      <TextBlock Text="Type:" Foreground="White" Margin="0,0,0,4"/>
+      <TextBlock Text="Typ:" Foreground="White" Margin="0,0,0,4"/>
       <ComboBox x:Name="typeBox" Height="32" Background="White" Foreground="Black" Margin="0,0,0,12" BorderBrush="Gray">
         <ComboBox.ItemContainerStyle>
           <Style TargetType="ComboBoxItem">
@@ -38,7 +38,7 @@
 
       <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
         <Button x:Name="addBtn" 
-                Content="Add Transaction" 
+                Content="Transaction hinzufügen" 
                 Width="160" Height="36" 
                 Background="#FF4CAF50" 
                 Foreground="White" 
@@ -47,6 +47,6 @@
                 Click="addBtn_Click"/>
       </StackPanel>
     </StackPanel>
-    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+    <Button x:Name="backbtn" Content="zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
   </Grid>
 </Window>

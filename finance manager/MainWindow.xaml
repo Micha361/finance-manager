@@ -103,7 +103,7 @@
 
     <Button x:Name="loginbtn" Content="Login" HorizontalAlignment="Center" Margin="0,42,0,0" VerticalAlignment="Top" Click="loginbtn_Click" Grid.Row="1"/>
 
-    <Button x:Name="registerlinkbtn" Content="Register Here" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Click="registerlinkbtn_Click" Width="220" Grid.Row="1"/>
+    <Button x:Name="registerlinkbtn" Content="zum Register" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Click="registerlinkbtn_Click" Width="220" Grid.Row="1"/>
 
   </Grid>
 </Window>
