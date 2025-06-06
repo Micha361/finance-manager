@@ -1,34 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System;
 
 namespace finance_manager
 {
-    /// <summary>
-    /// Interaktionslogik für transactions.xaml
-    /// </summary>
-    public partial class transactions : Window
+  public partial class transactions : Window
+  {
+    public transactions()
     {
-        public transactions()
-        {
-            InitializeComponent();
-        }
+      InitializeComponent();
+      LoadTransactions(); // Daten laden beim Start
+    }
+
+    private void LoadTransactions()
+    {
+      int userId = Userdb.LoggedInUserId;
+
+      TransactionDb db = new TransactionDb();
+      var transactions = db.GetTransactionsSortedByDate(userId);
+
+      transactionGrid.ItemsSource = transactions.Select(t => new
+      {
+        Date = t.Date.ToString("dd.MM.yyyy"),
+        t.Category,
+        Amount = $"{t.Amount:F2} CHF",
+        t.Description
+      }).ToList();
+    }
+
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
     {
       Window1 mainApp = new Window1();
       mainApp.Show();
-
       this.Close();
     }
 
@@ -36,7 +41,6 @@ namespace finance_manager
     {
       addtransaction addnewtransactionApp = new addtransaction();
       addnewtransactionApp.Show();
-
       this.Close();
     }
   }

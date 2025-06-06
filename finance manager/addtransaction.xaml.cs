@@ -40,10 +40,18 @@ namespace finance_manager
         return;
       }
 
+      int userId = Userdb.LoggedInUserId;
+
       TransactionDb db = new TransactionDb();
-      db.AddTransaction(1, amount, type, description, date.Value); // Dummy userId
+      db.AddTransaction(userId, amount, type, description, date.Value);
 
       MessageBox.Show("Transaktion erfolgreich hinzugefügt!");
+
+      
+      transactions transactionsApp = new transactions();
+      transactionsApp.Show();
+
+      
       this.Close();
     }
   }
