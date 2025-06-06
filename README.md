@@ -190,5 +190,6 @@ Mit dem Personal Finance Manager wurde eine umfassende und moderne Anwendung ges
 
 
 # Relationales Modell
+![image](https://github.com/user-attachments/assets/6c2c97c4-1401-4366-a01b-c29137eaa88c)
 
 # Mockup
