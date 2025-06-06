@@ -2,6 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System;
+using System.Data.SQLite;
+using System.IO;
+
 
 namespace finance_manager
 {
@@ -10,7 +13,7 @@ namespace finance_manager
     public transactions()
     {
       InitializeComponent();
-      LoadTransactions(); // Daten laden beim Start
+      LoadTransactions(); 
     }
 
     private void LoadTransactions()
@@ -42,6 +45,57 @@ namespace finance_manager
       addtransaction addnewtransactionApp = new addtransaction();
       addnewtransactionApp.Show();
       this.Close();
+    }
+
+    private void DeleteTransaction_Click(object sender, RoutedEventArgs e)
+    {
+      Button deleteButton = sender as Button;
+      dynamic selectedTransaction = deleteButton.DataContext;
+
+      string desc = selectedTransaction.Description;
+      string category = selectedTransaction.Category;
+      string dateString = selectedTransaction.Date;
+
+      TransactionDb transactionDb = new TransactionDb();
+      int userId = Userdb.LoggedInUserId;
+
+      var allTransactions = transactionDb.GetTransactionsSortedByDate(userId);
+      var transactionToDelete = allTransactions.FirstOrDefault(t =>
+        t.Description == desc &&
+        t.Category == category &&
+        t.Date.ToString("dd.MM.yyyy") == dateString
+      );
+
+      if (transactionToDelete.Equals(default((int, int, double, string, string, DateTime))))
+      {
+        MessageBox.Show("Transaktion konnte nicht gefunden werden.");
+        return;
+      }
+
+      
+      Balancedb balanceDb = new Balancedb();
+      double currentBalance = balanceDb.GetBalance(userId);
+
+      double newBalance = category.ToLower() == "income"
+          ? currentBalance - transactionToDelete.Amount
+          : currentBalance + transactionToDelete.Amount;
+
+      balanceDb.UpdateBalance(userId, newBalance);
+
+      
+      string deleteSql = "DELETE FROM transactions WHERE transaction_id = @id";
+      using (var conn = new SQLiteConnection("Data Source=" + Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "finance_manager.db")))
+      {
+        conn.Open();
+        using (var cmd = new SQLiteCommand(deleteSql, conn))
+        {
+          cmd.Parameters.AddWithValue("@id", transactionToDelete.Id);
+          cmd.ExecuteNonQuery();
+        }
+      }
+
+      MessageBox.Show("Transaktion wurde gelöscht und Saldo aktualisiert.");
+      LoadTransactions();
     }
 
 
