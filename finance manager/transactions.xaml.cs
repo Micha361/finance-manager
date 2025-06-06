@@ -43,5 +43,7 @@ namespace finance_manager
       addnewtransactionApp.Show();
       this.Close();
     }
+
+
   }
 }
