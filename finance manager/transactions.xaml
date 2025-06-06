@@ -14,39 +14,37 @@
     <Button x:Name="addnewtransactionbtn" Content="Add new transaction" HorizontalAlignment="Left" Margin="583,109,0,0" VerticalAlignment="Top" Height="28" Width="136" Background="#FF3A3A3A" FontWeight="Bold" Foreground="White" Click="addnewtransactionbtn_Click"/>
 
     <DataGrid x:Name="transactionGrid"
-              AutoGenerateColumns="False"
-              IsReadOnly="True"
-              CanUserAddRows="False"
-              Margin="64,147,81,0"
-              RowHeight="32"
-              FontSize="14"
-              HeadersVisibility="Column"
-              VerticalAlignment="Top"
-              GridLinesVisibility="Horizontal"
-              AlternatingRowBackground="Gray"
-              Height="277">
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          CanUserAddRows="False"
+          RowHeight="32"
+          FontSize="14"
+          HeadersVisibility="Column"
+          GridLinesVisibility="Horizontal"
+          AlternatingRowBackground="LightGray"
+          Height="277">
 
       <DataGrid.Columns>
-        <DataGridTextColumn Header="Datum" Binding="{Binding Date}" Width="120" />
+        <DataGridTextColumn Header="Datum" Binding="{Binding Date}" Width="*" />
         <DataGridTextColumn Header="Kategorie" Binding="{Binding Category}" Width="*" />
-        <DataGridTextColumn Header="Betrag" Binding="{Binding Amount}" Width="100" />
+        <DataGridTextColumn Header="Betrag" Binding="{Binding Amount}" Width="*" />
         <DataGridTextColumn Header="Beschreibung" Binding="{Binding Description}" Width="2*" />
-
         <DataGridTemplateColumn Header="Löschen" Width="80">
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>
               <Button Content="Löschen"
-                      Width="65"
-                      Height="24"
-                      Background="#FF3A3A3A"
-                      Foreground="White"
-                      FontSize="12"
-                      FontWeight="Bold" />
+                  Width="65"
+                  Height="24"
+                  Background="#FF3A3A3A"
+                  Foreground="White"
+                  FontSize="12"
+                  FontWeight="Bold"
+                  Click="DeleteTransaction_Click"/>
             </DataTemplate>
           </DataGridTemplateColumn.CellTemplate>
         </DataGridTemplateColumn>
-
       </DataGrid.Columns>
     </DataGrid>
+
   </Grid>
 </Window>

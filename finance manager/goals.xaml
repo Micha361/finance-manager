@@ -19,26 +19,32 @@
           HeadersVisibility="Column"
           GridLinesVisibility="Horizontal"
           AlternatingRowBackground="LightGray"
-          Height="277">
+          Height="277"
+          SelectionChanged="goalGrid_SelectionChanged_1">
 
         <DataGrid.Columns>
           <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="2*" />
           <DataGridTextColumn Header="Zielbetrag" Binding="{Binding TargetAmount}" Width="*" />
+          <DataGridTextColumn Header="Gespart" Binding="{Binding SavedAmount}" Width="*" />
+          <DataGridTextColumn Header="Noch benötigt" Binding="{Binding NeededAmount}" Width="*" />
+
           <DataGridTemplateColumn Header="Löschen" Width="80">
             <DataGridTemplateColumn.CellTemplate>
               <DataTemplate>
                 <Button Content="Löschen"
-                        Width="65"
-                        Height="24"
-                        Background="#FF3A3A3A"
-                        Foreground="White"
-                        FontSize="12"
-                        FontWeight="Bold" />
+                  Width="65"
+                  Height="24"
+                  Background="#FF3A3A3A"
+                  Foreground="White"
+                  FontSize="12"
+                  FontWeight="Bold"
+                  Click="DeleteGoal_Click"/>
               </DataTemplate>
             </DataGridTemplateColumn.CellTemplate>
           </DataGridTemplateColumn>
         </DataGrid.Columns>
       </DataGrid>
+
     </StackPanel>
 
     <Button x:Name="backbtn"
@@ -65,13 +71,13 @@
             FontWeight="Bold"
             Click="addbtn_Click"/>
 
-    <Label Content="Budgets"
+    <Label Content="Ziele"
            HorizontalAlignment="Center"
            Margin="0,43,0,0"
            VerticalAlignment="Top"
            Foreground="White"
            Height="51"
-           Width="140"
+           Width="63"
            FontSize="24"
            FontWeight="Bold"/>
   </Grid>

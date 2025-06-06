@@ -30,32 +30,31 @@
            Width="152"/>
 
     <DataGrid x:Name="budgetGrid"
-              AutoGenerateColumns="False"
-              IsReadOnly="True"
-              Margin="89,126,74,10"
-              Background="White"
-              Foreground="Black"
-              GridLinesVisibility="Horizontal"
-              AlternatingRowBackground="#FFEFEFEF"
-              BorderBrush="Gray"
-              HorizontalGridLinesBrush="LightGray"
-              ColumnHeaderHeight="34"
-              HeadersVisibility="Column">
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          CanUserAddRows="False"
+          RowHeight="32"
+          FontSize="14"
+          HeadersVisibility="Column"
+          GridLinesVisibility="Horizontal"
+          AlternatingRowBackground="LightGray"
+          Height="277">
 
       <DataGrid.Columns>
-        <DataGridTextColumn Header="Beschreibung" Binding="{Binding Description}" Width="2*"/>
-        <DataGridTextColumn Header="Gesamtbetrag" Binding="{Binding Total}" Width="*"/>
-        <DataGridTextColumn Header="Monatlich" Binding="{Binding Monthly}" Width="*"/>
+        <DataGridTextColumn Header="Beschreibung" Binding="{Binding Description}" Width="2*" />
+        <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*" />
+        <DataGridTextColumn Header="Monatlich" Binding="{Binding Monthly}" Width="*" />
         <DataGridTemplateColumn Header="Löschen" Width="80">
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>
               <Button Content="Löschen"
-                      Width="65"
-                      Height="24"
-                      Background="#FF3A3A3A"
-                      Foreground="White"
-                      FontSize="12"
-                      FontWeight="Bold" />
+                  Width="65"
+                  Height="24"
+                  Background="#FF3A3A3A"
+                  Foreground="White"
+                  FontSize="12"
+                  FontWeight="Bold"
+                  Click="DeleteBudget_Click"/>
             </DataTemplate>
           </DataGridTemplateColumn.CellTemplate>
         </DataGridTemplateColumn>

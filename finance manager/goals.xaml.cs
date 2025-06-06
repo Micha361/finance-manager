@@ -25,6 +25,7 @@ namespace finance_manager
       LoadGoals();
     }
 
+    
     private void LoadGoals()
     {
       GoalDb db = new GoalDb();
@@ -34,10 +35,12 @@ namespace finance_manager
       goalGrid.ItemsSource = goals.Select(g => new
       {
         g.Title,
-        TargetAmount = $"{g.Target:F2} CHF",
-        SavedAmount = $"{g.Saved:F2} CHF"
+        Zielbetrag = $"{g.Target:F2} CHF",
+        Gespart = $"{g.Saved:F2} CHF",
+        NochBenötigt = $"{(g.Target - g.Saved):F2} CHF"
       }).ToList();
     }
+
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
     {
@@ -55,6 +58,55 @@ namespace finance_manager
     private void goalGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
 
+    }
+
+    private void goalGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void DeleteGoal_Click(object sender, RoutedEventArgs e)
+    {
+      if (goalGrid.SelectedItem == null)
+      {
+        MessageBox.Show("Bitte ein Ziel auswählen.");
+        return;
+      }
+
+      dynamic selectedGoal = goalGrid.SelectedItem;
+      string title = selectedGoal.Title;
+
+      GoalDb db = new GoalDb();
+      int userId = Userdb.LoggedInUserId;
+
+      var goals = db.GetGoalsForUser(userId);
+      var goalToDelete = goals.FirstOrDefault(g => g.Title == title);
+
+      if (goalToDelete == null)
+      {
+        MessageBox.Show("Ziel konnte nicht gefunden werden.");
+        return;
+      }
+
+      MessageBoxResult result = MessageBox.Show(
+        "Willst du das gesparte Geld wieder auf dein Saldo zurückbuchen?",
+        "Ziel löschen",
+        MessageBoxButton.YesNoCancel,
+        MessageBoxImage.Question
+      );
+
+      if (result == MessageBoxResult.Cancel) return;
+
+      if (result == MessageBoxResult.Yes)
+      {
+        Balancedb balanceDb = new Balancedb();
+        double currentBalance = balanceDb.GetBalance(userId);
+        balanceDb.UpdateBalance(userId, currentBalance + goalToDelete.Saved);
+      }
+
+      db.DeleteGoal(goalToDelete.Id);
+      MessageBox.Show("Ziel wurde gelöscht.");
+      LoadGoals(); 
     }
   }
 }
