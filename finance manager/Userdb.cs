@@ -9,7 +9,7 @@ namespace finance_manager
   {
     private string dbPath;
     private string connectionString;
-    public static string LoggedInUser { get; private set; } //Eine globale Variable um den angemeldeten Benutzer zu speichern
+    public static string LoggedInUser { get; set; } //Eine globale Variable um den angemeldeten Benutzer zu speichern
     public static int LoggedInUserId { get; private set; } // Variabel um UserId zu benutzen
 
     public Userdb()
@@ -130,6 +130,35 @@ namespace finance_manager
         }
       }
     }
+
+    // Passwort ändern
+    public bool ChangePassword(string username, string oldPassword, string newPassword)
+    {
+      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+      {
+        conn.Open();
+
+        string checkSql = "SELECT id FROM users WHERE username=@username AND password=@oldPassword";
+        using (SQLiteCommand checkCmd = new SQLiteCommand(checkSql, conn))
+        {
+          checkCmd.Parameters.AddWithValue("@username", username);
+          checkCmd.Parameters.AddWithValue("@oldPassword", oldPassword);
+          object result = checkCmd.ExecuteScalar();
+          if (result == null)
+            return false;
+        }
+
+        string updateSql = "UPDATE users SET password=@newPassword WHERE username=@username";
+        using (SQLiteCommand updateCmd = new SQLiteCommand(updateSql, conn))
+        {
+          updateCmd.Parameters.AddWithValue("@newPassword", newPassword);
+          updateCmd.Parameters.AddWithValue("@username", username);
+          return updateCmd.ExecuteNonQuery() > 0;
+        }
+      }
+    }
+
+
     // Benutzer löschen
     public bool DeleteUser(int userId)
     {

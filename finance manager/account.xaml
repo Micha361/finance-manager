@@ -8,6 +8,7 @@
         Title="Account" Height="450" Width="800">
   <Grid Background="#FF191A1F">
     <Label Content="Account" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Width="122" Foreground="White" Height="36" FontSize="20"/>
+
     <Label x:Name="usernamelbl" Content="Username" HorizontalAlignment="Left" Margin="275,90,0,0" VerticalAlignment="Top" FontSize="18" Width="314" Foreground="White"/>
 
     <Label Content="Altes Passwort:" HorizontalAlignment="Left" Margin="270,150,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -19,8 +20,38 @@
     <Label Content="Bestätigen:" HorizontalAlignment="Left" Margin="270,230,0,0" VerticalAlignment="Top" Foreground="White"/>
     <PasswordBox x:Name="ConfirmPasswordBox" HorizontalAlignment="Left" Margin="400,230,0,0" VerticalAlignment="Top" Width="150"/>
 
-    <Button x:Name="ChangePasswordButton" Content="Passwort ändern" HorizontalAlignment="Left" Margin="330,280,0,0" VerticalAlignment="Top" Width="140" Height="30" Background="#3CB371" Foreground="White"/>
+    <Button x:Name="ChangePasswordButton"
+            Content="Passwort ändern"
+            HorizontalAlignment="Left"
+            Margin="330,280,0,0"
+            VerticalAlignment="Top"
+            Width="140"
+            Height="30"
+            Background="#3CB371"
+            Foreground="White"
+            Click="ChangePasswordButton_Click" />
 
-    <Button x:Name="backbtn" Content="zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+    <Button x:Name="DeleteAccountButton"
+            Content="Account löschen"
+            HorizontalAlignment="Left"
+            Margin="330,330,0,0"
+            VerticalAlignment="Top"
+            Width="140"
+            Height="30"
+            Background="#FFC02929"
+            Foreground="White"
+            Click="DeleteAccountButton_Click"/>
+
+    <Button x:Name="backbtn"
+            Content="zurück"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0"
+            VerticalAlignment="Top"
+            Width="85"
+            Height="32"
+            Background="#FF2F2F2F"
+            Foreground="White"
+            FontWeight="Bold"
+            Click="backbtn_Click"/>
   </Grid>
 </Window>
