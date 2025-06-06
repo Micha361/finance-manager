@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace finance_manager
 {
     /// <summary>
-    /// Interaktionslogik für addbudget.xaml
+    /// Interaktionslogik für goals.xaml
     /// </summary>
-    public partial class addbudget : Window
+    public partial class goals : Window
     {
-        public addbudget()
+        public goals()
         {
             InitializeComponent();
         }
@@ -30,5 +30,5 @@ namespace finance_manager
       mainApp.Show();
       this.Close();
     }
-  }
+    }
 }

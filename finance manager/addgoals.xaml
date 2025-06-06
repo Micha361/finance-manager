@@ -18,8 +18,8 @@
 
       <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
         <Button x:Name="AddGoalButton" Content="Add Goal" Width="120" Margin="0,0,10,0" Background="#3CB371" Foreground="White"/>
-        <Button x:Name="BackButton" Content="Back" Width="80" Background="#444" Foreground="White"/>
       </StackPanel>
     </StackPanel>
+    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
   </Grid>
 </Window>

@@ -9,7 +9,7 @@
 
   <Grid Background="#FF191A1F">
     <Button x:Name="backbtn"
-                Content="← Zurück"
+                Content="back"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="10"
@@ -45,7 +45,7 @@
     </DataGrid>
 
     <Button x:Name="addbtn"
-        Content="Hinzufügen"
+        Content="add"
         HorizontalAlignment="Right"
         Margin="0,10,10,0"
         VerticalAlignment="Top"
