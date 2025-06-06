@@ -10,20 +10,22 @@
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="700">
       <TextBlock Text="Deine Ziele" FontSize="24" Foreground="White" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-      <DataGrid x:Name="GoalsGrid"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="False"
-                      HeadersVisibility="Column"
-                      Margin="0,0,0,20"
-                      RowBackground="#FF2A2B2F"
-                      AlternatingRowBackground="#FF202124"
-                      Foreground="White"
-                      Background="Transparent"
-                      BorderBrush="Transparent">
+      <DataGrid x:Name="goalGrid"
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          CanUserAddRows="False"
+          Margin="64,147,81,0"
+          RowHeight="32"
+          FontSize="14"
+          HeadersVisibility="Column"
+          VerticalAlignment="Top"
+          GridLinesVisibility="Horizontal"
+          AlternatingRowBackground="LightGray"
+          Height="277">
+
         <DataGrid.Columns>
-          <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*" />
-          <DataGridTextColumn Header="Target Amount" Binding="{Binding Target}" Width="*" />
-          <DataGridTextColumn Header="Saved Amount" Binding="{Binding Saved}" Width="*" />
+          <DataGridTextColumn Header="Titel" Binding="{Binding Title}" Width="2*" />
+          <DataGridTextColumn Header="Zielbetrag" Binding="{Binding TargetAmount}" Width="*" />
         </DataGrid.Columns>
       </DataGrid>
     </StackPanel>
@@ -38,7 +40,7 @@
       Foreground="White"
       FontWeight="Bold"
       Click="backbtn_Click"/>
-    <Button x:Name="backbtn_Kopieren"
+    <Button x:Name="addbutton"
       Content="Hinzufügen"
       HorizontalAlignment="Left"
       VerticalAlignment="Top"
@@ -48,6 +50,6 @@
       Background="#FF2F2F2F"
       Foreground="White"
       FontWeight="Bold"
-      Click="backbtn_Click"/>
+      Click="addbtn_Click"/>
   </Grid>
 </Window>

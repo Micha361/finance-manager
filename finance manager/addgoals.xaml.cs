@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Globalization;
 namespace finance_manager
 {
     /// <summary>
@@ -26,6 +26,32 @@ namespace finance_manager
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
     {
+      goals mainApp = new goals();
+      mainApp.Show();
+      this.Close();
+    }
+    private void AddGoalButton_Click(object sender, RoutedEventArgs e)
+    {
+      string title = TitleBox.Text;
+      string targetAmountText = TargetAmountBox.Text;
+
+      if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(targetAmountText))
+      {
+        MessageBox.Show("Bitte alle Felder ausfüllen.");
+        return;
+      }
+
+      if (!double.TryParse(targetAmountText, NumberStyles.Any, CultureInfo.InvariantCulture, out double targetAmount))
+      {
+        MessageBox.Show("Ungültiger Betrag.");
+        return;
+      }
+
+      int userId = Userdb.LoggedInUserId;
+      GoalDb db = new GoalDb();
+      db.AddGoal(userId, title, targetAmount);
+
+      MessageBox.Show("Ziel erfolgreich hinzugefügt!");
       goals mainApp = new goals();
       mainApp.Show();
       this.Close();

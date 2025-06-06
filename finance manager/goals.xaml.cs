@@ -22,6 +22,21 @@ namespace finance_manager
     public goals()
     {
       InitializeComponent();
+      LoadGoals();
+    }
+
+    private void LoadGoals()
+    {
+      GoalDb db = new GoalDb();
+      int userId = Userdb.LoggedInUserId;
+      var goals = db.GetGoalsForUser(userId);
+
+      goalGrid.ItemsSource = goals.Select(g => new
+      {
+        g.Title,
+        TargetAmount = $"{g.Target:F2} CHF",
+        SavedAmount = $"{g.Saved:F2} CHF"
+      }).ToList();
     }
 
     private void backbtn_Click(object sender, RoutedEventArgs e)
@@ -32,8 +47,8 @@ namespace finance_manager
     }
     private void addbtn_Click(object sender, RoutedEventArgs e)
     {
-      addgoals main = new addgoals();
-      main.Show();
+      addgoals mainApp = new addgoals();
+      mainApp.Show();
       this.Close();
     }
   }
