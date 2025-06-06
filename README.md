@@ -184,6 +184,10 @@ Die Verwendung von Unit-Tests bringt mehrere Vorteile mit sich: Einerseits wird 
 Mit dem Personal Finance Manager wurde eine umfassende und moderne Anwendung geschaffen, die es Nutzerinnen und Nutzern ermöglicht, ihre persönlichen Finanzen einfach, übersichtlich und effizient zu verwalten. Die Software verbindet eine klare Benutzeroberfläche mit einer stabilen technischen Basis, wodurch ein zuverlässiges und gleichzeitig benutzerfreundliches System entstanden ist. Die Anwendung erfüllt alle grundlegenden Anforderungen an eine Finanzverwaltungssoftware und bietet darüber hinaus sinnvolle Erweiterungen wie Budgetfunktionen und grafische Auswertungen, die das Verständnis der eigenen finanziellen Situation deutlich verbessern. Durch den Einsatz objektorientierter Programmierung, sauber strukturierter Datenbankanbindung und modularem Aufbau ist die Anwendung nicht nur funktional, sondern auch langfristig wartbar und erweiterbar. Die klare Trennung von Oberfläche, Logik und Datenhaltung erleichtert zukünftige Anpassungen und neue Funktionen können gezielt integriert werden. Perspektivisch wäre es denkbar, das System durch Funktionen wie automatischen Datenexport, eine Cloud-Synchronisation zur geräteübergreifenden Nutzung oder sogar eine Anbindung an mobile Endgeräte zu erweitern. Damit bietet der Personal Finance Manager eine solide Grundlage für eine kontinuierliche Weiterentwicklung im Sinne einer noch umfassenderen digitalen Finanzverwaltung.
 
 # ER Modell
+![PFM_ER_Diagramm drawio](https://github.com/user-attachments/assets/a38c9c51-7db9-47c6-8f9b-79c9c9086cdf)
+
+
+
 
 # Relationales Modell
 
