@@ -5,14 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:finance_manager"
         mc:Ignorable="d"
-        Title="account" Height="450" Width="800">
+        Title="Account" Height="450" Width="800">
   <Grid Background="#FF191A1F">
-    <Label Content="account" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Width="122" Foreground="White" Height="36" FontSize="20"/>
-    <Label x:Name="usernamelbl" Content="" HorizontalAlignment="Left" Margin="275,127,0,0" VerticalAlignment="Top" FontSize="18" Width="314" Foreground="White"/>
-    <Label x:Name="passwort_change" Content="chanche password" HorizontalAlignment="Left" Margin="320,166,0,0" VerticalAlignment="Top" Width="224" Foreground="White"/>
-    <TextBox HorizontalAlignment="Left" Margin="312,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
-    <TextBox HorizontalAlignment="Left" Margin="312,240,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="22"/>
-    <Button x:Name="backbtn" Content="back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
+    <Label Content="Account" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Width="122" Foreground="White" Height="36" FontSize="20"/>
+    <Label x:Name="usernamelbl" Content="Username" HorizontalAlignment="Left" Margin="275,90,0,0" VerticalAlignment="Top" FontSize="18" Width="314" Foreground="White"/>
 
+    <Label Content="Altes Passwort:" HorizontalAlignment="Left" Margin="270,150,0,0" VerticalAlignment="Top" Foreground="White"/>
+    <PasswordBox x:Name="OldPasswordBox" HorizontalAlignment="Left" Margin="400,150,0,0" VerticalAlignment="Top" Width="150"/>
+
+    <Label Content="Neues Passwort:" HorizontalAlignment="Left" Margin="270,190,0,0" VerticalAlignment="Top" Foreground="White"/>
+    <PasswordBox x:Name="NewPasswordBox" HorizontalAlignment="Left" Margin="400,190,0,0" VerticalAlignment="Top" Width="150"/>
+
+    <Label Content="Bestätigen:" HorizontalAlignment="Left" Margin="270,230,0,0" VerticalAlignment="Top" Foreground="White"/>
+    <PasswordBox x:Name="ConfirmPasswordBox" HorizontalAlignment="Left" Margin="400,230,0,0" VerticalAlignment="Top" Width="150"/>
+
+    <Button x:Name="ChangePasswordButton" Content="Passwort ändern" HorizontalAlignment="Left" Margin="330,280,0,0" VerticalAlignment="Top" Width="140" Height="30" Background="#3CB371" Foreground="White"/>
+
+    <Button x:Name="backbtn" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" Height="32" Background="#FF2F2F2F" Foreground="White" FontWeight="Bold" Click="backbtn_Click"/>
   </Grid>
 </Window>
