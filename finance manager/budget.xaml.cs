@@ -48,10 +48,10 @@ namespace finance_manager
     private void DeleteBudget_Click(object sender, RoutedEventArgs e)
     {
       Button deleteButton = sender as Button;
-      var row = (FrameworkElement)deleteButton.DataContext;
-      dynamic selectedBudget = row.DataContext;
+      dynamic selectedBudget = deleteButton.DataContext;
 
       string desc = selectedBudget.Description;
+
       var allBudgets = db.GetBudgetsForUser(userId);
       var budgetToDelete = allBudgets.FirstOrDefault(b => b.Description == desc);
 
@@ -75,6 +75,7 @@ namespace finance_manager
         LoadBudgets();
       }
     }
+
 
   }
 }
