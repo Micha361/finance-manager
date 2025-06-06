@@ -2,7 +2,12 @@ Dokumentation
 
 Personal Finance Manager
 
+Test Login:
+-Benutzername: Kam
+-Passwort:     123
+
 # Video
+
 
 # 1. Einleitung
 
