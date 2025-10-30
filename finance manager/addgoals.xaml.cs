@@ -61,43 +61,46 @@ namespace finance_manager
 
 
 
-    private void AddGoalButton_Click(object sender, RoutedEventArgs e)
-    {
-      string title = TitleBox.Text?.Trim() ?? "";
-      string targetAmountText = TargetAmountBox.Text?.Trim() ?? "";
+   private void AddGoalButton_Click(object sender, RoutedEventArgs e)
+{
+    string title = TitleBox.Text?.Trim() ?? "";
+    string targetAmountText = TargetAmountBox.Text?.Trim() ?? "";
 
-      if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(targetAmountText))
-      {
+    if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(targetAmountText))
+    {
         MessageBox.Show("Bitte alle Felder ausfüllen.");
         return;
-      }
+    }
 
-      if (!TryParseAmount(targetAmountText, out var targetAmount) || targetAmount <= 0)
-      {
+    if (!TryParseAmount(targetAmountText, out var targetAmount) || targetAmount <= 0)
+    {
         MessageBox.Show("Bitte einen gültigen Zielbetrag eingeben.");
         return;
-      }
+    }
 
-      try
-      {
+    try
+    {
         int userId = Userdb.LoggedInUserId;
         var db = new GoalDb();
 
-
+       
         int newGoalId = db.AddGoal(title, (double)targetAmount, userId);
 
-      
+       
+        ReloadGoalsKeepSelection(newGoalId);
+        GoalComboBox.SelectedValue = newGoalId;
+
         TitleBox.Clear();
         TargetAmountBox.Clear();
-        ReloadGoalsKeepSelection(newGoalId);
 
         MessageBox.Show("Ziel erfolgreich hinzugefügt!");
-      }
-      catch (Exception ex)
-      {
-        MessageBox.Show("Fehler beim Anlegen des Ziels: " + ex.Message);
-      }
     }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Fehler beim Anlegen des Ziels: " + ex.Message);
+    }
+}
+
 
     private void SaveMoneyBtn_Click(object sender, RoutedEventArgs e)
     {
