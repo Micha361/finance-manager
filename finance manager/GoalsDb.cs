@@ -46,25 +46,30 @@ namespace finance_manager
       }
     }
 
-    public void AddGoal(string title, double targetAmount, int userId)
+  public int AddGoal(string title, double targetAmount, int userId)
+{
+    using (var conn = new SQLiteConnection(connectionString))
     {
-      using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-      {
         conn.Open();
 
-        string insertSql = @"
-                INSERT INTO goals (title, target_amount, saved_amount, needed_amount, fk_userid)
-                VALUES (@title, @target, 0, @target, @userId);";
+        
+        const string sql = @"
+            INSERT INTO goals (title, target_amount, saved_amount, needed_amount, fk_userid)
+            VALUES (@title, @target, 0, @target, @userId);
+            SELECT last_insert_rowid();";
 
-        using (SQLiteCommand cmd = new SQLiteCommand(insertSql, conn))
+        using (var cmd = new SQLiteCommand(sql, conn))
         {
-          cmd.Parameters.AddWithValue("@title", title);
-          cmd.Parameters.AddWithValue("@target", targetAmount);
-          cmd.Parameters.AddWithValue("@userId", userId);
-          cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.Parameters.AddWithValue("@target", targetAmount);
+            cmd.Parameters.AddWithValue("@userId", userId);
+
+            
+            var result = cmd.ExecuteScalar();         
+            return Convert.ToInt32((long)result);
         }
-      }
     }
+}
 
     public List<Goal> GetGoalsForUser(int userId)
     {
